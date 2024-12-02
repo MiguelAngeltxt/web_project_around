@@ -1,3 +1,8 @@
+footer {
+  display: flex;
+  width: 68.75%;
+}
+
 .footer p {
   font-family: Inter;
   font-size: 18px;
@@ -8,5 +13,5 @@
   text-decoration-skip-ink: none;
   color: #545454;
   margin-bottom: 60px;
-  margin-right: 762px;
+  width: fit-content;
 }

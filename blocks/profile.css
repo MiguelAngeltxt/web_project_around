@@ -54,9 +54,49 @@
 }
 
 .profille_add-button_edit {
-  width: 150px;
-  height: 50px;
-  background-color: black;
-  border: none;
-  padding: 0%;
+  background-color: #000;
+  border: solid #fff;
+  padding: 14px 64px;
+}
+
+@media screen and (max-width: 320px) {
+  .profile {
+    width: 88.12%;
+    margin-top: 42px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile_avatar {
+    width: 59.66%;
+  }
+
+  .profile_info {
+    width: 100%;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .profile_info_name {
+    font-size: 22px;
+    line-height: 26.63px;
+  }
+
+  .profile_info_edit-button {
+    width: 18px;
+    margin-left: 10px;
+    align-self: baseline;
+  }
+
+  .profile_info_description {
+    font-size: 14px;
+    line-height: 16.94px;
+  }
+  .profille_add-button {
+    margin: auto;
+  }
+
+  .profille_add-button_edit {
+    padding: 17px 133px;
+  }
 }
