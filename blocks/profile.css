@@ -1,0 +1,62 @@
+.profile {
+  display: flex;
+  width: 68.7%;
+  margin-top: 40px;
+}
+
+.profile_avatar {
+  width: 19.17%;
+  text-align: center;
+}
+
+.profile_avatar_image {
+  border-radius: 50%;
+  width: 71.1%;
+  display: inline-block;
+}
+
+.profile_info {
+  width: 47.15%;
+  height: 77px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile_info_name {
+  font-family: Inter;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 48px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  width: fit-content;
+}
+
+.profile_info_description {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.profile_info_edit-button {
+  background-color: black;
+  width: 24px;
+  border: none;
+  margin-left: auto;
+}
+
+.profille_add-button {
+  margin-left: auto;
+}
+
+.profille_add-button_edit {
+  width: 150px;
+  height: 50px;
+  background-color: black;
+  border: none;
+  padding: 0%;
+}

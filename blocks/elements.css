@@ -1,0 +1,41 @@
+.elements {
+  width: 68.75%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 17px;
+  margin: 50px 0px 68px;
+}
+
+.element {
+  background: #fff;
+  border-radius: 10px;
+  color: #000;
+}
+
+.element image {
+  width: 32%;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25px;
+  margin-bottom: 31px;
+}
+
+.content p {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29.05px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  width: fit-content;
+}
+
+.content button {
+  background-color: #fff;
+  border: #fff;
+  width: 21px;
+}
