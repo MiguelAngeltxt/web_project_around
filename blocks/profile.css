@@ -42,11 +42,19 @@
   text-decoration-skip-ink: none;
 }
 
+.profille_add-button_edit_image {
+  padding: 7px;
+  border: 1px solid #fff;
+}
+
+.profille_add-button_edit_image:hover {
+  opacity: 0.5;
+}
+
 .profile_info_edit-button {
   background-color: black;
-  width: 24px;
-  border: none;
   margin-left: auto;
+  border: none;
 }
 
 .profille_add-button {
@@ -55,8 +63,12 @@
 
 .profille_add-button_edit {
   background-color: #000;
-  border: solid #fff;
+  border: 2px solid #fff;
   padding: 14px 64px;
+}
+
+.profille_add-button_edit:hover {
+  opacity: 0.5;
 }
 
 @media screen and (max-width: 320px) {

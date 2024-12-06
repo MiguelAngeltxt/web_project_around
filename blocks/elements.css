@@ -42,6 +42,10 @@
   margin-left: auto;
 }
 
+.content button:hover {
+  opacity: 0.5;
+}
+
 @media screen and (max-width: 320px) {
   .elements {
     width: 88.12%;
