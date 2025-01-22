@@ -19,113 +19,130 @@
         <img class="logo" src="./images/Vector.png" alt="Logo Around the US" />
         <hr class="division" />
       </header>
-      <section class="profile">
-        <div class="profile_avatar">
-          <img
-            class="profile_avatar_image"
-            src="./images/image.jpg"
-            alt="Perfil de hombre mayor"
-          />
-        </div>
-        <div class="profile_info">
-          <h1 class="profile_info_name">Jacques Cousteau</h1>
-          <button class="profile_info_edit-button">
+        <section class="profile">
+          <div class="profile_avatar">
             <img
-              class="profille_add-button_edit_image"
-              src="./images/edit.png"
-              alt="Editar"
+              class="profile_avatar_image"
+              src="./images/image.jpg"
+              alt="Perfil de hombre mayor"
             />
-          </button>
-          <h2 class="profile_info_description">Explorador</h2>
-        </div>
-        <div class="profille_add-button">
-          <button class="profille_add-button_edit">
-            <img src="./images/add2.png" alt="boton añadir" />
-          </button>
-        </div>
-      </section>
-      <section class="elements">
-        <div class="element">
-          <img src="./images/rio.png" alt="lago bordeado de arboles" />
-          <div class="content">
-            <p>Valle de Yosemite</p>
-            <button>
-              <img src="./images/Group.png" alt="corazón me gusta" />
+          </div>
+          <div class="profile_info">
+            <h1 class="profile_info_name">Jacques Cousteau</h1>
+            <button class="profile_info_edit-button">
+              <img
+                class="profille_add-button_edit_image"
+                src="./images/edit.png"
+                alt="Editar"
+              />
+            </button>
+            <h2 class="profile_info_description">Explorador</h2>
+          </div>
+          <div class="profille_add-button">
+            <button class="profille_add-button_edit">
+              <img src="./images/add2.png" alt="boton añadir" />
             </button>
           </div>
-        </div>
-        <div class="element">
-          <img
-            src="./images/kirill-pershin-1404681-unsplash.png"
-            alt="montañas nevadas"
-          />
-          <div class="content">
-            <p>Lago Louise</p>
-            <button>
-              <img src="./images/Group.png" alt="corazón me gusta" />
-            </button>
+          <div class="form" id="popup">
+            <div class="form__button">
+              <img id="close-button" class="form__button-close" src="./images/add2.png" alt="cierre formulario">
+            </div>
+            <div class="form__title">
+              <h3 class="form__title-text">Editar perfil</h3>
+              <form id="form-_edit" class="form-info">
+                <input
+                  type="text"
+                  class="form-info-input form-info-input--name"
+                  id="name"
+                  name="Jacques Cousteau"
+                  placeholder="Nombre"
+                /><input
+                  type="text"
+                  class="form-info-input form-info-input--description"
+                  id="about"
+                  name="Explorador"
+                  placeholder="Acerca de mí"
+                />
+                <button type="submit" id="save-button" class="form-info-button">Guardar</button>
+              </form>
+            </div>
           </div>
-        </div>
-        <div class="element">
-          <img
-            src="./images/kirill-pershin-1556355-unsplash.png"
-            alt="atardecer en las montañas"
-          />
-          <div class="content">
-            <p>Montañas Calvas</p>
-            <button>
-              <img src="./images/Group.png" alt="corazón me gusta" />
-            </button>
+        </section>
+        <section class="elements">
+          <div class="element">
+            <img src="./images/rio.png" alt="lago bordeado de arboles" />
+            <div class="content">
+              <p>Valle de Yosemite</p>
+              <button>
+                <img src="./images/Group.png" alt="corazón me gusta" class="content__corazon"/>
+              </button>
+            </div>
           </div>
-        </div>
-        <div class="element">
-          <img
-            src="./images/kirill-pershin-1404681-unsplash (1).png"
-            alt="motañas en un cielo estrellado"
-          />
-          <div class="content">
-            <p>Latemar</p>
-            <button>
-              <img src="./images/Group.png" alt="corazón me gusta" />
-            </button>
+          <div class="element">
+            <img
+              src="./images/kirill-pershin-1404681-unsplash.png"
+              alt="montañas nevadas"
+            />
+            <div class="content">
+              <p>Lago Louise</p>
+              <button>
+                <img src="./images/Group.png" alt="corazón me gusta" class="content__corazon"/>
+              </button>
+            </div>
           </div>
-        </div>
-        <div class="element">
-          <img
-            src="./images/kirill-pershin-1556355-unsplash (1).png"
-            alt="montañas en la playa"
-          />
-          <div class="content">
-            <p>Vanois National...</p>
-            <button>
-              <img src="./images/Group.png" alt="corazón me gusta" />
-            </button>
+          <div class="element">
+            <img
+              src="./images/kirill-pershin-1556355-unsplash.png"
+              alt="atardecer en las montañas"
+            />
+            <div class="content">
+              <p>Montañas Calvas</p>
+              <button>
+                <img src="./images/Group.png" alt="corazón me gusta" class="content__corazon"/>
+              </button>
+            </div>
           </div>
-        </div>
-        <div class="element">
-          <img
-            src="./images/kirill-pershin-1088404-unsplash.png"
-            alt="botes junto a las montañas"
-          />
-          <div class="content">
-            <p>Lago di Braies</p>
-            <button>
-              <img src="./images/Group.png" alt="corazón me gusta" />
-            </button>
+          <div class="element">
+            <img
+              src="./images/kirill-pershin-1404681-unsplash (1).png"
+              alt="motañas en un cielo estrellado"
+            />
+            <div class="content">
+              <p>Latemar</p>
+              <button>
+                <img src="./images/Group.png" alt="corazón me gusta" class="content__corazon"/>
+              </button>
+            </div>
           </div>
-        </div>
-      </section>
+          <div class="element">
+            <img
+              src="./images/kirill-pershin-1556355-unsplash (1).png"
+              alt="montañas en la playa"
+            />
+            <div class="content">
+              <p>Vanois National...</p>
+              <button>
+                <img src="./images/Group.png" alt="corazón me gusta" class="content__corazon" />
+              </button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="./images/kirill-pershin-1088404-unsplash.png"
+              alt="botes junto a las montañas"
+            />
+            <div class="content">
+              <p>Lago di Braies</p>
+              <button>
+                <img src="./images/Group.png" alt="corazón me gusta" class="content__corazon"/>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
       <footer class="footer">
         <p>© 2024 Around The U.S.</p>
       </footer>
-      <form class="popup">
-        <h1>Editar Perfil</h1>
-        <input type="text" placeholder="Nombre" name="" id="" />
-        <input type="text" placeholder="Acerca de mi" name="" id="" />
-        <button>
-          <h2>Guardar</h2>
-        </button>
-      </form>
     </div>
     <script src="script.js"></script>
   </body>

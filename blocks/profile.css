@@ -45,6 +45,7 @@
 .profille_add-button_edit_image {
   padding: 7px;
   border: 1px solid #fff;
+  cursor: pointer;
 }
 
 .profille_add-button_edit_image:hover {
@@ -65,6 +66,7 @@
   background-color: #000;
   border: 2px solid #fff;
   padding: 14px 64px;
+  cursor: pointer;
 }
 
 .profille_add-button_edit:hover {
@@ -87,6 +89,7 @@
     width: 100%;
     justify-content: center;
     margin-top: 30px;
+    display: flex;
   }
 
   .profile_info_name {
@@ -103,6 +106,7 @@
   .profile_info_description {
     font-size: 14px;
     line-height: 16.94px;
+    margin-top: auto;
   }
   .profille_add-button {
     margin: auto;
