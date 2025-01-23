@@ -7,9 +7,9 @@ const inputNombre = document.querySelector(".form__edit__input__text");
 const inputDescripcion = document.querySelector(
   ".form__edit__input__description"
 );
-const Nombre = document.querySelector(".profile__info__header__text");
-const Descripcion = document.querySelector(".profile__info__details__text");
-const form = document.querySelector(".form__edit");
+const Nombre = document.querySelector(".form__edit__input__text");
+const Descripcion = document.querySelector(".form__edit__input__description");
+const form = document.getElementById("form");
 const imgCorazon = document.querySelectorAll(
   ".elements__element__content__corazon"
 );

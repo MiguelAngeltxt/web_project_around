@@ -35,13 +35,13 @@
   margin-bottom: 75px;
 }
 
-.form-info {
+.form__edit {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-.form-info input {
+.form__edit input {
   font-family: Inter;
   font-size: 14px;
   font-weight: 400;
