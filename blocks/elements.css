@@ -1,4 +1,4 @@
-.elements__elements {
+.elements {
   margin-top: 36px;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
   border-radius: 10px;
 }
 
-.elements__element__content {
+.elementselements__element-content {
   color: #000;
   display: flex;
   justify-content: space-between;
@@ -22,7 +22,7 @@
   margin: 25px 0px;
 }
 
-.elements__element__content p {
+.elementselements__element-content p {
   font-family: Inter;
   font-size: 24px;
   font-weight: 900;
@@ -32,7 +32,7 @@
   text-decoration-skip-ink: none;
 }
 
-.elements__element__content button {
+.elementselements__element-content button {
   background-color: transparent;
   border: none;
   display: flex;
@@ -40,12 +40,12 @@
   cursor: pointer;
 }
 
-.elements__element__content button:hover {
+.elementselements__element-content button:hover {
   opacity: 0.5;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  .elements__elements {
+  .elements {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -53,7 +53,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .elements__elements {
+  .elements {
     width: 68.75%;
     flex-direction: row;
     flex-wrap: wrap;

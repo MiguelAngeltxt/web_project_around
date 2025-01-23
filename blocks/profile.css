@@ -11,7 +11,7 @@
   width: 43%;
 }
 
-.profile__avatar__image {
+.profile__avatar-image {
   border-radius: 50%;
   width: 100%;
 }
@@ -62,13 +62,13 @@
   text-align: center;
 }
 
-.profille__add__button {
+.profile__add__button {
   width: 100%;
   display: flex;
   margin-top: 6px;
 }
 
-.profille__add__button__edit {
+.profile__add__button__edit {
   background-color: #000;
   border: 2px solid #ffffff;
   width: 100%;
@@ -76,7 +76,7 @@
   cursor: pointer;
 }
 
-.profille__add__button__edit:hover {
+.profile__add__button__edit:hover {
   opacity: 0.6;
 }
 
@@ -111,11 +111,11 @@
     text-align: left;
   }
 
-  .profille__add__button {
+  .profile__add__button {
     width: 60%;
   }
 
-  .profille__add__button__edit {
+  .profile__add__button__edit {
     margin-left: auto;
   }
 }
@@ -158,7 +158,7 @@
     text-align: left;
   }
 
-  .profille__add__button {
+  .profile__add__button {
     width: 28%;
     max-width: 150px;
     margin: 0;
