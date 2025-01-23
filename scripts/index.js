@@ -11,7 +11,7 @@ const Nombre = document.querySelector(".profile__info__header__text");
 const Descripcion = document.querySelector(".profile__info__details__text");
 const form = document.querySelector(".form__edit");
 const imgCorazon = document.querySelectorAll(
-  ".elementselements__element-content__corazon"
+  ".elements__element__content__corazon"
 );
 const botonForm = document.querySelector(".form__edit__input__button");
 

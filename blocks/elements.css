@@ -14,7 +14,7 @@
   border-radius: 10px;
 }
 
-.elementselements__element-content {
+.elements__element__content {
   color: #000;
   display: flex;
   justify-content: space-between;
@@ -22,7 +22,7 @@
   margin: 25px 0px;
 }
 
-.elementselements__element-content p {
+.elements__element__content p {
   font-family: Inter;
   font-size: 24px;
   font-weight: 900;
@@ -32,7 +32,7 @@
   text-decoration-skip-ink: none;
 }
 
-.elementselements__element-content button {
+.elements__element__content button {
   background-color: transparent;
   border: none;
   display: flex;
@@ -40,7 +40,7 @@
   cursor: pointer;
 }
 
-.elementselements__element-content button:hover {
+.elements__element__content button:hover {
   opacity: 0.5;
 }
 
