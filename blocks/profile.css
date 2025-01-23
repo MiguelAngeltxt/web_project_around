@@ -16,18 +16,18 @@
   width: 100%;
 }
 
-.profile___info {
+.profile__info {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
-.profile___info__header {
+.profile__info__header {
   display: flex;
   justify-content: space-around;
 }
 
-.profile___info__header__text {
+.profile__info__header__text {
   font-family: Inter;
   font-size: 22px;
   font-weight: 500;
@@ -37,7 +37,7 @@
   text-decoration-skip-ink: none;
 }
 
-.profile___info__header__button {
+.profile__info__header__button {
   background-color: black;
   border: 1px solid #ffffff;
   width: 21px;
@@ -49,11 +49,11 @@
   cursor: pointer;
 }
 
-.profile___info__header__button:hover {
+.profile__info__header__button:hover {
   opacity: 0.6;
 }
 
-.profile___info__details__text {
+.profile__info__details__text {
   font-family: Inter;
   font-size: 14px;
   font-weight: 400;
@@ -90,22 +90,22 @@
     width: 49%;
   }
 
-  .profile___info__header {
+  .profile__info__header {
     gap: 10px;
     align-items: center;
   }
-  .profile___info__header__text {
+  .profile__info__header__text {
     font-size: 32px;
     line-height: 37px;
     max-width: 90%;
     white-space: nowrap;
   }
 
-  .profile___info__header__button {
+  .profile__info__header__button {
     margin-left: auto;
   }
 
-  .profile___info__details__text {
+  .profile__info__details__text {
     font-size: 16px;
     line-height: 19px;
     text-align: left;
@@ -131,28 +131,28 @@
     max-width: 120px;
   }
 
-  .profile___info {
+  .profile__info {
     width: fit-content;
   }
 
-  .profile___info__header {
+  .profile__info__header {
     gap: 18px;
     align-items: center;
   }
 
-  .profile___info__header__text {
+  .profile__info__header__text {
     font-size: 42px;
     line-height: 48px;
     white-space: nowrap;
   }
 
-  .profile___info__header__button {
+  .profile__info__header__button {
     width: 24px;
     height: 24px;
     display: flex;
   }
 
-  .profile___info__details__text {
+  .profile__info__details__text {
     font-size: 18px;
     line-height: 21.78px;
     text-align: left;
