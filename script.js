@@ -1,9 +1,3 @@
-// const formPopUp = document.querySelector(".form");
-// const editButton = document.querySelector(".profile_info_edit-button");
-
-// editButton.addEventListener("click", () => {
-//   formPopUp.classList.toggle("form__show");
-// });
 // Creo las variables que necesito para seleccionar los elementos del DOM que me interesan.
 const botonEditar = document.querySelector(".profile_info_edit-button");
 const botonAdd = document.querySelector(".profille_add-button_edit");
@@ -17,6 +11,7 @@ const Nombre = document.querySelector(".profile_info_name");
 const Descripcion = document.querySelector(".profile_info_description");
 const form = document.querySelector(".form-info");
 const imgCorazon = document.querySelectorAll(".content__corazon");
+const botonForm = document.querySelector(".form-info-button");
 
 // Añado un event listener al botón de editar para que cuando se haga click se ejecute la función abrirFormulario.
 botonEditar.addEventListener("click", abrirFormulario);
@@ -36,6 +31,12 @@ function guardarDatos(e) {
   e.preventDefault();
   Nombre.textContent = inputNombre.value;
   Descripcion.textContent = inputDescripcion.value;
+}
+
+inputNombre.addEventListener("input", botonActivado);
+inputDescripcion.addEventListener("input", botonActivado);
+function botonActivado() {
+  botonForm.classList.add("form-info-button--active");
 }
 
 // Cambiar color del corazón

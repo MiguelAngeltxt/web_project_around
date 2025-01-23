@@ -1,25 +1,29 @@
 .header {
-  margin-top: 45px;
-  width: 68.75%;
+  width: 100%;
+  display: flex;
+  align-items: start;
+  height: 56px;
+  margin-top: 28px;
+  border-bottom: 1px solid #545454;
 }
 
 .logo {
-  width: 19.6%;
+  width: 39%;
+  margin-left: 27px;
 }
 
-.division {
-  border: none;
-  height: 1px;
-  background-color: #545454;
-  margin-top: 41px;
-}
-
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .logo {
-    width: 57.27%;
+    width: 19.6%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    width: 68.75%;
   }
 
-  .division {
-    margin-top: 32px;
+  .logo {
+    width: 19.6%;
   }
 }
