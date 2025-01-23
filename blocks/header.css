@@ -7,13 +7,13 @@
   border-bottom: 1px solid #545454;
 }
 
-.logo {
+.header__logo {
   width: 39%;
   margin-left: 27px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  .logo {
+  .header__logo {
     width: 19.6%;
   }
 }
@@ -23,7 +23,7 @@
     width: 68.75%;
   }
 
-  .logo {
+  .header__logo {
     width: 19.6%;
   }
 }

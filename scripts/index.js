@@ -1,17 +1,19 @@
-// Creo las variables que necesito para seleccionar los elementos del DOM que me interesan.
-const botonEditar = document.querySelector(".profile_info_edit-button");
-const botonAdd = document.querySelector(".profille_add-button_edit");
+// Creo las variables que necesito para seleccionar los elements__elementos del DOM que me interesan.
+const botonEditar = document.querySelector(".profile___info__header__button");
+const botonAdd = document.querySelector(".profille__add__button__edit");
 const formPopUp = document.querySelector(".form");
 const botonCierre = document.querySelector(".form__button-close");
-const inputNombre = document.querySelector(".form-info-input--name");
+const inputNombre = document.querySelector(".form__edit__input__text");
 const inputDescripcion = document.querySelector(
-  ".form-info-input--description"
+  ".form__edit__input__description"
 );
-const Nombre = document.querySelector(".profile_info_name");
-const Descripcion = document.querySelector(".profile_info_description");
-const form = document.querySelector(".form-info");
-const imgCorazon = document.querySelectorAll(".content__corazon");
-const botonForm = document.querySelector(".form-info-button");
+const Nombre = document.querySelector(".profile___info__header__text");
+const Descripcion = document.querySelector(".profile___info__details__text");
+const form = document.querySelector(".form__edit");
+const imgCorazon = document.querySelectorAll(
+  ".elements__element__content__corazon"
+);
+const botonForm = document.querySelector(".form__edit__input__button");
 
 // Añado un event listener al botón de editar para que cuando se haga click se ejecute la función abrirFormulario.
 botonEditar.addEventListener("click", abrirFormulario);
@@ -36,7 +38,7 @@ function guardarDatos(e) {
 inputNombre.addEventListener("input", botonActivado);
 inputDescripcion.addEventListener("input", botonActivado);
 function botonActivado() {
-  botonForm.classList.add("form-info-button--active");
+  botonForm.classList.add("form__edit__input__button--active");
 }
 
 // Cambiar color del corazón

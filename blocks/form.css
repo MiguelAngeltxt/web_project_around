@@ -55,7 +55,7 @@
   outline: none;
 }
 
-.form-info-button {
+.form__edit__input__button {
   margin-top: 16px;
   background-color: #fff;
   border: 1px solid #c4c4c4;
@@ -72,12 +72,12 @@
   cursor: pointer;
 }
 
-.form-info-button--active {
+.form__edit__input__button--active {
   background-color: #000;
   color: #fff;
 }
 
-.form-info-button:hover {
+.form__edit__input__button:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
