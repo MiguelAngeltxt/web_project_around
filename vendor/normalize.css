@@ -25,7 +25,7 @@ body {
 }
 
 /**
- * Renderiza, de forma consistente, el elements__elemento `<main>` en IE.
+ * Renderiza, de forma consistente, el elements__itemo `<main>` en IE.
  */
 
 main {
@@ -33,7 +33,7 @@ main {
 }
 
 /**
- * Corrige el tamaño de fuente y margen en los elements__elementos `<h1>`dentro de los contextos `<section>` y
+ * Corrige el tamaño de fuente y margen en los elements__itemos `<h1>`dentro de los contextos `<section>` y
  * `<article>` en Chrome, Firefox y Safari.
  */
 
@@ -51,7 +51,7 @@ h1 {
  */
 
 hr {
-  box-sizing: elements__element__content-box; /* 1 */
+  box-sizing: elements__item-content-box; /* 1 */
   height: 0; /* 1 */
   overflow: visible; /* 2 */
 }
@@ -118,7 +118,7 @@ small {
 }
 
 /**
- * Evita que los elements__elementos `sub` y `sup` afecten la altura de línea en
+ * Evita que los elements__itemos `sub` y `sup` afecten la altura de línea en
  * todos los navegadores.
  */
 
@@ -234,9 +234,9 @@ fieldset {
 
 /**
  * 1. Corrige el ajuste de texto en Edge e IE.
- * 2. Corrige la herencia de color de los elements__elementos `fieldset` en IE.
+ * 2. Corrige la herencia de color de los elements__itemos `fieldset` en IE.
  * 3. Elimina el área de padding para que los desarrolladores no se vean sorprendidos al reducir a cero
- *    elements__elemento `fieldset` en todos los navegadores.
+ *    elements__itemo `fieldset` en todos los navegadores.
  */
 
 legend {

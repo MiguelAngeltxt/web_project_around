@@ -6,7 +6,7 @@
   margin-bottom: 50px;
 }
 
-.elements__element {
+.elements__item {
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
   border-radius: 10px;
 }
 
-.elements__element__content {
+.elements__item-content {
   color: #000;
   display: flex;
   justify-content: space-between;
@@ -22,7 +22,7 @@
   margin: 25px 0px;
 }
 
-.elements__element__content p {
+.elements__item-content p {
   font-family: Inter;
   font-size: 24px;
   font-weight: 900;
@@ -32,7 +32,7 @@
   text-decoration-skip-ink: none;
 }
 
-.elements__element__content button {
+.elements__item-content button {
   background-color: transparent;
   border: none;
   display: flex;
@@ -40,7 +40,7 @@
   cursor: pointer;
 }
 
-.elements__element__content button:hover {
+.elements__item-content button:hover {
   opacity: 0.5;
 }
 
