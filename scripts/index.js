@@ -1,5 +1,5 @@
 // Creo las variables que necesito para seleccionar los elements__itemos del DOM que me interesan.
-const botonEditar = document.querySelector(".profile__info__header__button");
+const botonEditar = document.querySelector(".profile__info-edit-button");
 const botonAdd = document.querySelector(".profile__add-button-edit");
 const formPopUp = document.querySelector(".form");
 const botonCierre = document.querySelector(".form__button-close");
