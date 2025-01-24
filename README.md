@@ -74,16 +74,16 @@ Instalación:
 
 Clona el repositorio en tu máquina local.
 
-git clone <URL-del-repositorio>
+git clone https://github.com/MiguelAngeltxt/web_project_around
 
 Asegúrate de tener una estructura de carpetas como sigue:
 
 /
 |-- /images
 |-- /pages
-|   |-- index.css
+| |-- index.css
 |-- /scripts
-|   |-- index.js
+| |-- index.js
 |-- index.html
 |-- favicon.ico
 
@@ -101,7 +101,7 @@ Publicación en GitHub Pages
 
 Puedes acceder al proyecto publicado en GitHub Pages en el siguiente enlace:
 
-Enlace a GitHub Pages
+https://miguelangeltxt.github.io/web_project_around
 
 Características Técnicas
 
