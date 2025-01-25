@@ -4,6 +4,7 @@
   flex-direction: column;
   gap: 10px;
   margin-bottom: 50px;
+  max-width: 880px;
 }
 
 .elements__item {
