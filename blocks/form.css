@@ -14,6 +14,11 @@
   margin-left: auto;
   transform: rotate(45deg);
   cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.form__button:hover {
+  opacity: 0.6;
 }
 
 .form__title {
@@ -70,6 +75,7 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   cursor: pointer;
+  transition: background-color 0.5s ease;
 }
 
 .form__edit-submit-button--active {
@@ -81,7 +87,7 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .form {
     position: fixed;
     width: 35%;
@@ -96,8 +102,29 @@
   .form__button {
     width: 6%;
   }
-  .form__button:hover {
-    opacity: 0.6;
+
+  .form__button-close {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .form {
+    position: fixed;
+    width: 35%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .form__title {
+    width: 96%;
+  }
+  .form__title-text {
+    font-size: 24px;
+    line-height: 29.05px;
+    letter-spacing: 0%;
+  }
+  .form__button {
+    width: 6%;
   }
 
   .form__button-close {

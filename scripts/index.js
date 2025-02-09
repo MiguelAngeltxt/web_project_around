@@ -1,41 +1,59 @@
 // Creo las variables que necesito para seleccionar los elements__itemos del DOM que me interesan.
+//esta selecciona el boton para editar los datos del usuario
 const botonEditar = document.querySelector(".profile__info-edit-button");
+//esta selecciona el boton para agregar cards
 const botonAdd = document.querySelector(".profile__add-button-edit");
+//selecciona el formulario
 const formPopUp = document.querySelector(".form");
+//selecciona el boton de cierre del formulario
 const botonCierre = document.querySelector(".form__button-close");
-const inputNombre = document.querySelector(".form__edit-input-name");
-const inputDescripcion = document.querySelector(
-  ".form__edit-input-description"
-);
+//selecciona el primer input de texto del formulario
+const inputFirst = document.querySelector(".form__edit-input-first");
+//selecciona el segundo input de texto del formulario
+const inputSecond = document.querySelector(".form__edit-input-second");
 
 const form = document.getElementById("form");
 const botonForm = document.querySelector(".form__edit-submit-button");
 const Nombre = document.querySelector(".profile__info-header-title");
 const Descripción = document.querySelector(".profile__info-details-text");
 
-// Añado un event listener al botón de editar para que cuando se haga click se ejecute la función abrirFormulario.
-botonEditar.addEventListener("click", abrirFormulario);
-// Creo la función abrirFormulario que añade la clase form__show al formulario.
-function abrirFormulario() {
+let isEditMode = false; // Variable de estado para saber si estamos en modo de edición
+
+// Función para abrir el formulario y modificar los textos y placeholders según el tipo de formulario
+function abrirFormulario(
+  titulo,
+  placeholder1,
+  placeholder2,
+  modoEdicion = false
+) {
+  // Limpia los campos antes de abrir el formulario
+  inputFirst.value = ""; // Limpia el primer input
+  inputSecond.value = ""; // Limpia el segundo input
+  botonForm.classList.remove("form__edit-submit-button--active"); // "apaga" el boton guardar
+  isEditMode = modoEdicion; // Actualizamos el estado
   formPopUp.classList.add("form__show");
-}
-// Añado un event listener al botón de cerrar para que cuando se haga click se ejecute la función cerrarFormulario.
-botonCierre.addEventListener("click", cerrarFormulario);
-// Creo la función cerrarFormulario que elimina la clase form__show al formulario.
-function cerrarFormulario() {
-  formPopUp.classList.remove("form__show");
+  document.querySelector(".form__title-text").textContent = titulo;
+  document.querySelector(".form__edit-input-first").placeholder = placeholder1;
+  document.querySelector(".form__edit-input-second").placeholder = placeholder2;
 }
 
-form.addEventListener("submit", guardarDatos);
-function guardarDatos(e) {
-  e.preventDefault();
-  Nombre.textContent = inputNombre.value;
-  Descripción.textContent = inputDescripcion.value;
-  formPopUp.classList.remove("form__show");
-}
+// Añado un event listener al botón de editar
+botonEditar.addEventListener("click", () =>
+  abrirFormulario("Editar perfil", "Nombre", "Acerca de mí", true)
+);
 
-inputNombre.addEventListener("input", botonActivado);
-inputDescripcion.addEventListener("input", botonActivado);
+// Añado un event listener al botón de añadir
+botonAdd.addEventListener("click", () =>
+  abrirFormulario("Nuevo lugar", "Título", "Enlace a la imagen", false)
+);
+
+//implemeta aca el boton de cierre del formulario
+botonCierre.addEventListener("click", () =>
+  formPopUp.classList.toggle("form__show")
+);
+
+inputFirst.addEventListener("input", botonActivado);
+inputSecond.addEventListener("input", botonActivado);
 function botonActivado() {
   botonForm.classList.add("form__edit-submit-button--active");
 }
@@ -75,22 +93,34 @@ function addCard(name, link) {
   const cardElement = cardTemplate
     .querySelector(".elements__item")
     .cloneNode(true);
+  const likeButton = cardElement.querySelector(".elements__item-like-button");
   cardElement.querySelector(".elements__item-img").src = link;
   cardElement.querySelector(".elements__item-title").textContent = name;
+  likeButton.addEventListener("click", () => {
+    if (likeButton.src.includes("Group.png")) {
+      likeButton.src = "./images/Union.png";
+    } else {
+      likeButton.src = "./images/Group.png";
+    }
+  });
+
   cardContainer.append(cardElement);
 }
 
+// Se añade un event listener al formulario para manejar el evento submit
+form.addEventListener("submit", (e) => {
+  // Se previene la acción predeterminada del formulario (recargar la página)
+  e.preventDefault();
+
+  if (isEditMode) {
+    Nombre.textContent = inputFirst.value;
+    Descripción.textContent = inputSecond.value;
+  } else {
+    addCard(inputFirst.value, inputSecond.value);
+  }
+  formPopUp.classList.remove("form__show");
+});
+
 initialCards.forEach((card) => addCard(card.name, card.link));
 
-const imgCorazon = document.querySelectorAll(".elements__item-like-button");
-
-// Cambiar color del corazón
-imgCorazon.forEach((corazon) => {
-  corazon.addEventListener("click", () => {
-    if (corazon.src.includes("Group.png")) {
-      corazon.src = "./images/Union.png";
-    } else {
-      corazon.src = "./images/Group.png";
-    }
-  });
-});
+//implementa el boton para eliminar las cards

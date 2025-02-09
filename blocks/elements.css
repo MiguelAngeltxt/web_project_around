@@ -38,10 +38,15 @@
   text-overflow: ellipsis;
 }
 
+.elements__item-buttom {
+  position: absolute;
+}
+
 .elements__item-img {
   width: 282px;
   height: 282px;
   border-radius: 10px 10px 0 0;
+  cursor: pointer;
 }
 
 .elements__item-content button {
@@ -50,6 +55,7 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  transition: opacity 0.3s ease;
 }
 
 .elements__item-content button:hover {
