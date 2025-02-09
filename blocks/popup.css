@@ -1,0 +1,43 @@
+.popup__image {
+  display: none;
+  width: 100%;
+}
+.popup__image-show {
+  display: flex;
+  position: fixed;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.popup__button-close {
+  margin-left: auto;
+  transform: rotate(45deg);
+  width: 97%;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.popup__button-close:hover {
+  opacity: 0.6;
+}
+
+.popup__image-img {
+  max-width: 75vw;
+  max-height: 75vh;
+  margin-top: 30px;
+}
+
+.popup__image-text {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.52px;
+  letter-spacing: 0%;
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .popup__button-close {
+    width: 130%;
+  }
+}

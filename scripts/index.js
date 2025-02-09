@@ -104,8 +104,23 @@ function addCard(name, link) {
     }
   });
 
+  cardElement
+    .querySelector(".elements__item-img")
+    .addEventListener("click", () => {
+      document
+        .querySelector(".popup__image")
+        .classList.add("popup__image-show");
+      document.querySelector(".popup__image-img").src = link;
+      document.querySelector(".popup__image-text").textContent = name;
+    });
   cardContainer.append(cardElement);
 }
+
+const cerrarImagen = document.querySelector(".popup__button-close");
+
+cerrarImagen.addEventListener("click", () => {
+  document.querySelector(".popup__image").classList.remove("popup__image-show");
+});
 
 // Se añade un event listener al formulario para manejar el evento submit
 form.addEventListener("submit", (e) => {
