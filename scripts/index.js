@@ -9,9 +9,6 @@ const inputDescripcion = document.querySelector(
 );
 
 const form = document.getElementById("form");
-const imgCorazon = document.querySelectorAll(
-  ".elements__item-like-button"
-);
 const botonForm = document.querySelector(".form__edit-submit-button");
 const Nombre = document.querySelector(".profile__info-header-title");
 const Descripción = document.querySelector(".profile__info-details-text");
@@ -42,6 +39,50 @@ inputDescripcion.addEventListener("input", botonActivado);
 function botonActivado() {
   botonForm.classList.add("form__edit-submit-button--active");
 }
+
+//elementos de cada card
+const initialCards = [
+  {
+    name: "Valle de Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
+  },
+  {
+    name: "Lago Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
+  },
+  {
+    name: "Montañas Calvas",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
+  },
+  {
+    name: "Parque Nacional de la Vanoise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
+  },
+];
+//tomo la seccion donde se almacenaran las cards
+const cardContainer = document.querySelector(".elements");
+//agrega aqui la informacion de las cards.
+function addCard(name, link) {
+  const cardTemplate = document.querySelector("#card-template").content;
+  const cardElement = cardTemplate
+    .querySelector(".elements__item")
+    .cloneNode(true);
+  cardElement.querySelector(".elements__item-img").src = link;
+  cardElement.querySelector(".elements__item-title").textContent = name;
+  cardContainer.append(cardElement);
+}
+
+initialCards.forEach((card) => addCard(card.name, card.link));
+
+const imgCorazon = document.querySelectorAll(".elements__item-like-button");
 
 // Cambiar color del corazón
 imgCorazon.forEach((corazon) => {
