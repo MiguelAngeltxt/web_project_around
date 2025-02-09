@@ -4,6 +4,7 @@
   width: 88%;
   flex-direction: column;
   gap: 13px;
+  z-index: 1000;
 }
 
 .form__show {

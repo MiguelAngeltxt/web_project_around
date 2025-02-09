@@ -94,6 +94,7 @@ function addCard(name, link) {
     .querySelector(".elements__item")
     .cloneNode(true);
   const likeButton = cardElement.querySelector(".elements__item-like-button");
+
   cardElement.querySelector(".elements__item-img").src = link;
   cardElement.querySelector(".elements__item-title").textContent = name;
   likeButton.addEventListener("click", () => {
@@ -114,6 +115,10 @@ function addCard(name, link) {
       document.querySelector(".popup__image-text").textContent = name;
     });
   cardContainer.append(cardElement);
+  // const botonDelete = document.querySelector(".elements__item-action-button");
+  // botonDelete.addEventListener("click", () => {
+  //   cardElement.remove();
+  // });
 }
 
 const cerrarImagen = document.querySelector(".popup__button-close");
@@ -137,5 +142,3 @@ form.addEventListener("submit", (e) => {
 });
 
 initialCards.forEach((card) => addCard(card.name, card.link));
-
-//implementa el boton para eliminar las cards
