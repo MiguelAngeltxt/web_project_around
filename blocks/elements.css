@@ -61,6 +61,11 @@
   border-radius: 10px 10px 0 0;
   cursor: pointer;
   display: block;
+  transition: all 0.4s ease;
+}
+
+.elements__item-img:hover {
+  filter: grayscale(100%);
 }
 
 .elements__item-content button {

@@ -85,7 +85,7 @@ const initialCards = [
 ];
 
 // Función para agregar una nueva tarjeta
-function addCard(name, link) {
+function addCard(name, link, isNewCard = false) {
   const cardTemplate = document.querySelector("#card-template").content;
   const cardElement = cardTemplate
     .querySelector(".elements__item")
@@ -93,7 +93,14 @@ function addCard(name, link) {
 
   cardElement.querySelector(".elements__item-img").src = link;
   cardElement.querySelector(".elements__item-title").textContent = name;
-  cardContainer.append(cardElement);
+
+  if (isNewCard) {
+    // Solo si es una tarjeta nueva, se coloca al principio
+    cardContainer.prepend(cardElement);
+  } else {
+    // Si no es una tarjeta nueva, se coloca al final (como estaba antes)
+    cardContainer.append(cardElement);
+  }
 
   // Evento para dar "like"
   const likeButton = cardElement.querySelector(".elements__item-like-button");
@@ -103,7 +110,7 @@ function addCard(name, link) {
       : "./images/Group.png";
   });
 
-  // Evento para abrir la imagen en grande
+  // Evento para abrir la imagen emergente
   cardElement
     .querySelector(".elements__item-img")
     .addEventListener("click", () => {
@@ -115,6 +122,16 @@ function addCard(name, link) {
       overlayImage.classList.add("overlay__image--active");
     });
 
+  // Evento para cerrar la imagen emergente
+  document
+    .querySelector(".popup__button-close")
+    .addEventListener("click", () => {
+      document
+        .querySelector(".popup__image")
+        .classList.remove("popup__image-show");
+      overlayImage.classList.remove("overlay__image--active");
+    });
+
   // Evento para eliminar la tarjeta
   const deleteButton = cardElement.querySelector(
     ".elements__item-action-button"
@@ -122,21 +139,18 @@ function addCard(name, link) {
   deleteButton.addEventListener("click", () => cardElement.remove());
 }
 
-// Evento para cerrar la imagen emergente
-document.querySelector(".popup__button-close").addEventListener("click", () => {
-  document.querySelector(".popup__image").classList.remove("popup__image-show");
-  overlayImage.classList.remove("overlay__image--active");
-});
-
 // Evento para manejar el envío del formulario
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  overlay.classList.remove("overlay--active");
 
   if (isEditMode) {
     nameProfile.textContent = inputFirst.value;
     description.textContent = inputSecond.value;
   } else {
-    addCard(inputFirst.value, inputSecond.value);
+    // Aquí pasamos `true` para indicar que es una tarjeta nueva y debe agregarse al principio
+    addCard(inputFirst.value, inputSecond.value, true);
   }
 
   formPopUp.classList.remove("form__show");
