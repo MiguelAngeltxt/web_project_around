@@ -1,3 +1,18 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Oscurece el fondo */
+  display: none;
+  z-index: 999; /* Asegura que esté detrás del formulario */
+}
+
+.overlay--active {
+  display: block;
+}
+
 .form {
   position: fixed;
   display: none;
