@@ -12,6 +12,8 @@ const description = document.querySelector(".profile__info-details-text");
 const cardContainer = document.querySelector(".elements");
 const overlay = document.getElementById("overlay");
 const overlayImage = document.querySelector(".overlay__image");
+const errorMesageFirst = document.querySelector(".error__message-first");
+const errorMesageSecond = document.querySelector(".error__message-second");
 
 // Estado para identificar si el formulario está en modo edición
 let isEditMode = false;
@@ -33,14 +35,40 @@ function abrirFormulario(
   document.querySelector(".form__title-text").textContent = titulo;
   inputFirst.placeholder = placeholder1;
   inputSecond.placeholder = placeholder2;
-}
+  errorMesageFirst.textContent = "";
+  errorMesageSecond.textContent = "";
+  inputFirst.addEventListener("input", () =>{
+    if (isEditMode) {
+      inputFirst.setAttribute("minlength", "2");
+      inputFirst.setAttribute("maxlength", "40");
+      errorMesageFirst.textContent = inputFirst.validationMessage;
+    }
+    else {
+      inputFirst.setAttribute("minlength", "2");
+      inputFirst.setAttribute("maxlength", "30");
+      errorMesageFirst.textContent = inputFirst.validationMessage;
+    }
+  })
+  inputSecond.addEventListener("input", () =>{
+    if (isEditMode) {
+      inputSecond.setAttribute("minlength", "2");
+      inputSecond.setAttribute("maxlength", "200");
+      errorMesageSecond.textContent = inputSecond.validationMessage;
+    }
+    else {
+      inputSecond.type = "url";
+      errorMesageSecond.textContent = inputSecond.validationMessage;
+    }
+  })
+  }
 
 // Eventos para abrir el formulario
 editButton.addEventListener("click", () =>
-  abrirFormulario("Editar perfil", "Nombre", "Acerca de mí", true)
+  abrirFormulario("Editar perfil", "Nombre", "Acerca de mí", true),
 );
+
 botonAdd.addEventListener("click", () =>
-  abrirFormulario("Nuevo lugar", "Título", "Enlace a la imagen")
+  abrirFormulario("Nuevo lugar", "Título", "Enlace a la imagen"),
 );
 
 // Evento para cerrar el formulario
@@ -49,12 +77,23 @@ closeButton.addEventListener("click", () => {
   overlay.classList.remove("overlay--active");
 });
 
-// Activar el botón de envío cuando se ingresa texto
-function botonActivado() {
-  formButton.classList.add("form__edit-submit-button--active");
-}
-inputFirst.addEventListener("input", botonActivado);
-inputSecond.addEventListener("input", botonActivado);
+// Evento para cerrar el formulario con tecla "Escape"
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    formPopUp.classList.remove("form__show");
+    overlay.classList.remove("overlay--active");
+  }
+});
+
+// Evento para cerrar el formulario al hacer clic fuera de él
+document.addEventListener("click", (e) => {
+  if (e.target === overlay) {
+    formPopUp.classList.remove("form__show");
+    overlay.classList.remove("overlay--active");
+  }
+});
+
+
 
 // Datos iniciales de las tarjetas
 const initialCards = [
@@ -130,6 +169,26 @@ function addCard(name, link, isNewCard = false) {
         .querySelector(".popup__image")
         .classList.remove("popup__image-show");
       overlayImage.classList.remove("overlay__image--active");
+    });
+
+    // Evento para cerrar la imagen emergente mediante la tecla "Escape"
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        document
+          .querySelector(".popup__image")
+          .classList.remove("popup__image-show");
+        overlayImage.classList.remove("overlay__image--active");
+      }
+    });
+
+    // Evento para cerrar la imagen emergente al hacer clic fuera de ella 
+    document.addEventListener("click", e => {
+      if (e.target === overlayImage) {
+        document
+          .querySelector(".popup__image")
+          .classList.remove("popup__image-show");
+        overlayImage.classList.remove("overlay__image--active");
+      }
     });
 
   // Evento para eliminar la tarjeta

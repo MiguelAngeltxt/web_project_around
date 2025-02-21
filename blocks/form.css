@@ -76,6 +76,15 @@
   outline: none;
 }
 
+.error__message{
+  font-family: Inter;
+font-weight: 400;
+font-size: 12px;
+line-height: 14.52px;
+color: #FF0000;
+}
+
+
 .form__edit-submit-button {
   margin-top: 16px;
   background-color: #fff;
