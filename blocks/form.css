@@ -76,18 +76,6 @@
   outline: none;
 }
 
-<<<<<<< HEAD
-.error__message-first,
-.error__message-second {
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14.52px;
-  color: #FF0000;
-  display: none;
-}
-
-=======
 .error__message{
   font-family: Inter;
 font-weight: 400;
@@ -97,7 +85,6 @@ color: #FF0000;
 }
 
 
->>>>>>> feature/form
 .form__edit-submit-button {
   margin-top: 16px;
   background-color: #fff;
