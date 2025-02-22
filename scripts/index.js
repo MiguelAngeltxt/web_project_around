@@ -112,8 +112,6 @@ inputFirst.addEventListener("input", validarFormulario);
 inputSecond.addEventListener("input", validarFormulario);
 
 
-
-
 // Datos iniciales de las tarjetas
 const initialCards = [
   {
