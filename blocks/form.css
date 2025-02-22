@@ -62,7 +62,8 @@
   gap: 30px;
 }
 
-.form__edit input {
+.form__edit-input-first,
+.form__edit-input-second {
   font-family: Inter;
   font-size: 14px;
   font-weight: 400;
@@ -74,6 +75,20 @@
   border-bottom: 1px solid #c4c4c4;
   padding: 9px;
   outline: none;
+}
+
+.error__input {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  border: none;
+  padding: 9px;
+  outline: none;
+  border-bottom: 1px solid #FF0000;
 }
 
 .error__message{
@@ -99,16 +114,16 @@ color: #FF0000;
   text-align: center;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-  cursor: pointer;
   transition: background-color 0.5s ease;
 }
 
 .form__edit-submit-button--active {
   background-color: #000;
   color: #fff;
+  cursor: pointer;
 }
 
-.form__edit-submit-button:hover {
+.form__edit-submit-button--active:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 

@@ -27,6 +27,8 @@ function abrirFormulario(
 ) {
   inputFirst.value = "";
   inputSecond.value = "";
+  errorMesageFirst.textContent = "";
+  errorMesageSecond.textContent = "";
   formButton.classList.remove("form__edit-submit-button--active");
   isEditMode = modoEdicion;
   formPopUp.classList.add("form__show");
@@ -52,6 +54,7 @@ function abrirFormulario(
     if (isEditMode) {
       inputSecond.setAttribute("minlength", "2");
       inputSecond.setAttribute("maxlength", "200");
+      inputSecond.type = "text";
       errorMesageSecond.textContent = inputSecond.validationMessage;
     }
     else {
@@ -92,12 +95,24 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Activar el botón de envío cuando se ingresa texto
-function botonActivado() {
-  formButton.classList.add("form__edit-submit-button--active");
+// Función para validar el formulario y activar el botón solo si ambos inputs son válidos
+function validarFormulario() {
+  const isValidFirst = inputFirst.validity.valid;
+  const isValidSecond = inputSecond.validity.valid;
+
+  if (isValidFirst && isValidSecond) {
+    formButton.classList.add("form__edit-submit-button--active");
+  } else {
+    formButton.classList.remove("form__edit-submit-button--active");
+  }
 }
-inputFirst.addEventListener("input", botonActivado);
-inputSecond.addEventListener("input", botonActivado);
+
+// Escuchar cambios en los inputs para validar el formulario dinámicamente
+inputFirst.addEventListener("input", validarFormulario);
+inputSecond.addEventListener("input", validarFormulario);
+
+
+
 
 // Datos iniciales de las tarjetas
 const initialCards = [
