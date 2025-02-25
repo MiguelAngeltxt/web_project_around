@@ -38,39 +38,37 @@ function abrirFormulario(
   inputSecond.placeholder = placeholder2;
   errorMesageFirst.textContent = "";
   errorMesageSecond.textContent = "";
-  inputFirst.addEventListener("input", () =>{
+  inputFirst.addEventListener("input", () => {
     if (isEditMode) {
       inputFirst.setAttribute("minlength", "2");
       inputFirst.setAttribute("maxlength", "40");
       errorMesageFirst.textContent = inputFirst.validationMessage;
-    }
-    else {
+    } else {
       inputFirst.setAttribute("minlength", "2");
       inputFirst.setAttribute("maxlength", "30");
       errorMesageFirst.textContent = inputFirst.validationMessage;
     }
-  })
-  inputSecond.addEventListener("input", () =>{
+  });
+  inputSecond.addEventListener("input", () => {
     if (isEditMode) {
       inputSecond.setAttribute("minlength", "2");
       inputSecond.setAttribute("maxlength", "200");
       inputSecond.type = "text";
       errorMesageSecond.textContent = inputSecond.validationMessage;
-    }
-    else {
+    } else {
       inputSecond.type = "url";
       errorMesageSecond.textContent = inputSecond.validationMessage;
     }
-  })
-  }
+  });
+}
 
 // Eventos para abrir el formulario
 editButton.addEventListener("click", () =>
-  abrirFormulario("Editar perfil", "Nombre", "Acerca de mí", true),
+  abrirFormulario("Editar perfil", "Nombre", "Acerca de mí", true)
 );
 
 botonAdd.addEventListener("click", () =>
-  abrirFormulario("Nuevo lugar", "Título", "Enlace a la imagen"),
+  abrirFormulario("Nuevo lugar", "Título", "Enlace a la imagen")
 );
 
 // Evento para cerrar el formulario
@@ -110,7 +108,6 @@ function validarFormulario() {
 // Escuchar cambios en los inputs para validar el formulario dinámicamente
 inputFirst.addEventListener("input", validarFormulario);
 inputSecond.addEventListener("input", validarFormulario);
-
 
 // Datos iniciales de las tarjetas
 const initialCards = [
@@ -188,25 +185,25 @@ function addCard(name, link, isNewCard = false) {
       overlayImage.classList.remove("overlay__image--active");
     });
 
-    // Evento para cerrar la imagen emergente mediante la tecla "Escape"
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        document
-          .querySelector(".popup__image")
-          .classList.remove("popup__image-show");
-        overlayImage.classList.remove("overlay__image--active");
-      }
-    });
+  // Evento para cerrar la imagen emergente mediante la tecla "Escape"
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      document
+        .querySelector(".popup__image")
+        .classList.remove("popup__image-show");
+      overlayImage.classList.remove("overlay__image--active");
+    }
+  });
 
-    // Evento para cerrar la imagen emergente al hacer clic fuera de ella 
-    document.addEventListener("click", e => {
-      if (e.target === overlayImage) {
-        document
-          .querySelector(".popup__image")
-          .classList.remove("popup__image-show");
-        overlayImage.classList.remove("overlay__image--active");
-      }
-    });
+  // Evento para cerrar la imagen emergente al hacer clic fuera de ella
+  document.addEventListener("click", (e) => {
+    if (e.target === overlayImage) {
+      document
+        .querySelector(".popup__image")
+        .classList.remove("popup__image-show");
+      overlayImage.classList.remove("overlay__image--active");
+    }
+  });
 
   // Evento para eliminar la tarjeta
   const deleteButton = cardElement.querySelector(
