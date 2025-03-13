@@ -22,62 +22,6 @@ const errorMesageFirstAdd = document.querySelector(".error__message-first-b");
 const errorMesageSecond = document.querySelector(".error__message-second");
 const errorMesageSecondAdd = document.querySelector(".error__message-second-b");
 
-// Estado para identificar si el formulario está en modo edición
-// let isEditMode = false;
-
-// // Función para abrir el formulario con título y placeholders personalizados
-// function abrirFormulario(
-//   titulo,
-//   placeholder1,
-//   placeholder2,
-//   modoEdicion = false
-// ) {
-//   inputFirst.value = "";
-//   inputSecond.value = "";
-//   errorMesageFirst.textContent = "";
-//   errorMesageSecond.textContent = "";
-//   formButton.classList.remove("form__edit-submit-button--active");
-//   isEditMode = modoEdicion;
-//   formPopUp.classList.add("form__show");
-//   overlay.classList.add("overlay--active");
-//   document.querySelector(".form__title-text").textContent = titulo;
-//   inputFirst.placeholder = placeholder1;
-//   inputSecond.placeholder = placeholder2;
-//   errorMesageFirst.textContent = "";
-//   errorMesageSecond.textContent = "";
-//   inputFirst.addEventListener("input", () => {
-//     if (isEditMode) {
-//       inputFirst.setAttribute("minlength", "2");
-//       inputFirst.setAttribute("maxlength", "40");
-//       errorMesageFirst.textContent = inputFirst.validationMessage;
-//     } else {
-//       inputFirst.setAttribute("minlength", "2");
-//       inputFirst.setAttribute("maxlength", "30");
-//       errorMesageFirst.textContent = inputFirst.validationMessage;
-//     }
-//   });
-//   inputSecond.addEventListener("input", () => {
-//     if (isEditMode) {
-//       inputSecond.setAttribute("minlength", "2");
-//       inputSecond.setAttribute("maxlength", "200");
-//       inputSecond.type = "text";
-//       errorMesageSecond.textContent = inputSecond.validationMessage;
-//     } else {
-//       inputSecond.type = "url";
-//       errorMesageSecond.textContent = inputSecond.validationMessage;
-//     }
-//   });
-// }
-
-// // Eventos para abrir el formulario
-// editButton.addEventListener("click", () =>
-//   abrirFormulario("Editar perfil", "Nombre", "Acerca de mí", true)
-// );
-
-// botonAdd.addEventListener("click", () =>
-//   abrirFormulario("Nuevo lugar", "Título", "Enlace a la imagen")
-// );
-
 // abrir formulario para editar perfil
 editButton.addEventListener("click", () => {
   formPopUp.classList.add("form__show");
