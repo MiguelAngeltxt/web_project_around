@@ -33,8 +33,13 @@
           </div>
           <div class="profile__info">
             <div class="profile__info-header">
-              <h1 class="profile__info-header-title">Jacques Cousteau</h1>
-              <button class="profile__info-edit-button">
+              <h1 class="profile__info-header-title" id="name">
+                Jacques Cousteau
+              </h1>
+              <button
+                class="profile__info-edit-button"
+                id="edit-profile-button"
+              >
                 <img
                   class="profile__info-edit-button-icon"
                   src="./images/edit.png"
@@ -43,11 +48,13 @@
               </button>
             </div>
             <div class="profile__info-details">
-              <h2 class="profile__info-details-text">Explorador</h2>
+              <h2 class="profile__info-details-text" id="description">
+                Explorador
+              </h2>
             </div>
           </div>
           <div class="profile__add-button">
-            <button class="profile__add-button-edit">
+            <button class="profile__add-button-edit" id="add-button">
               <img src="./images/add2.png" alt="boton añadir" />
             </button>
           </div>
@@ -62,13 +69,13 @@
               />
             </div>
             <div class="form__title">
-              <h3 class="form__title-text"></h3>
-              <form id="form" class="form__edit">
+              <h3 class="form__title-text">Editar Perfil</h3>
+              <form id="inputs" class="form__edit">
                 <input
                   type="text"
                   class="form__edit-input-first"
                   id="first"
-                  placeholder=""
+                  placeholder="Nombre"
                   required
                 />
                 <span class="error__message error__message-first"></span>
@@ -76,7 +83,7 @@
                   type="text"
                   class="form__edit-input-second"
                   id="second"
-                  placeholder=""
+                  placeholder="Descripción"
                   required
                 />
                 <span class="error__message error__message-second"></span>
@@ -84,6 +91,45 @@
                   type="submit"
                   id="save-button"
                   class="form__edit-submit-button"
+                >
+                  Guardar
+                </button>
+              </form>
+            </div>
+          </div>
+          <!-- <div class="overlay-b" id="overlay-b"></div> -->
+          <div class="form-b" id="popup-b">
+            <div class="form__button-b">
+              <img
+                id="close-button-b"
+                class="form__button-close-b"
+                src="./images/add2.png"
+                alt="cierre formulario"
+              />
+            </div>
+            <div class="form__title-b">
+              <h3 class="form__title-text-b">Nuevo lugar</h3>
+              <form id="form-b" class="form__edit-b">
+                <input
+                  type="text"
+                  class="form__edit-input-first-b"
+                  id="first-b"
+                  placeholder="Título"
+                  required
+                />
+                <span class="error__message error__message-first-b"></span>
+                <input
+                  type="url"
+                  class="form__edit-input-second-b"
+                  id="second-b"
+                  placeholder="Enlace a la imagen"
+                  required
+                />
+                <span class="error__message error__message-second-b"></span>
+                <button
+                  type="submit"
+                  id="save-button-b"
+                  class="form__edit-submit-button-b"
                 >
                   Guardar
                 </button>
@@ -133,8 +179,5 @@
       </footer>
     </div>
     <script type="module" src="./scripts/index.js"></script>
-    <script type="module" src="./scripts/Card.js"></script>
-    <script type="module" src="./scripts/FormValidator.js"></script>
-    <script type="module" src="./scripts/utils.js"></script>
   </body>
 </html>

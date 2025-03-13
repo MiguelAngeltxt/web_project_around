@@ -1,113 +1,181 @@
 // Selección de elementos del DOM
-const editButton = document.querySelector(".profile__info-edit-button");
-const botonAdd = document.querySelector(".profile__add-button-edit");
-const formPopUp = document.querySelector(".form");
-const closeButton = document.querySelector(".form__button-close");
-const inputFirst = document.querySelector(".form__edit-input-first");
-const inputSecond = document.querySelector(".form__edit-input-second");
-const form = document.getElementById("form");
-const formButton = document.querySelector(".form__edit-submit-button");
-const nameProfile = document.querySelector(".profile__info-header-title");
-const description = document.querySelector(".profile__info-details-text");
+const editButton = document.querySelector("#edit-profile-button");
+const botonAdd = document.querySelector("#add-button");
+const formPopUp = document.querySelector("#popup");
+const formAdd = document.querySelector("#popup-b");
+const closeButton = document.querySelector("#close-button");
+const closeButtonAdd = document.querySelector(".form__button-b");
+const inputFirst = document.querySelector("#first");
+const inputFirstAdd = document.querySelector("#first-b");
+const inputSecond = document.querySelector("#second");
+const inputSecondAdd = document.querySelector("#second-b");
+const form = document.querySelector("#inputs");
+const formButton = document.querySelector("#save-button");
+const formButtonAdd = document.querySelector("#save-button-b");
+const nameProfile = document.querySelector("#name");
+const description = document.querySelector("#description");
 const cardContainer = document.querySelector(".elements");
-const overlay = document.getElementById("overlay");
+const overlay = document.querySelector("#overlay");
 const overlayImage = document.querySelector(".overlay__image");
 const errorMesageFirst = document.querySelector(".error__message-first");
+const errorMesageFirstAdd = document.querySelector(".error__message-first-b");
 const errorMesageSecond = document.querySelector(".error__message-second");
+const errorMesageSecondAdd = document.querySelector(".error__message-second-b");
 
 // Estado para identificar si el formulario está en modo edición
-let isEditMode = false;
+// let isEditMode = false;
 
-// Función para abrir el formulario con título y placeholders personalizados
-function abrirFormulario(
-  titulo,
-  placeholder1,
-  placeholder2,
-  modoEdicion = false
-) {
-  inputFirst.value = "";
-  inputSecond.value = "";
-  errorMesageFirst.textContent = "";
-  errorMesageSecond.textContent = "";
-  formButton.classList.remove("form__edit-submit-button--active");
-  isEditMode = modoEdicion;
+// // Función para abrir el formulario con título y placeholders personalizados
+// function abrirFormulario(
+//   titulo,
+//   placeholder1,
+//   placeholder2,
+//   modoEdicion = false
+// ) {
+//   inputFirst.value = "";
+//   inputSecond.value = "";
+//   errorMesageFirst.textContent = "";
+//   errorMesageSecond.textContent = "";
+//   formButton.classList.remove("form__edit-submit-button--active");
+//   isEditMode = modoEdicion;
+//   formPopUp.classList.add("form__show");
+//   overlay.classList.add("overlay--active");
+//   document.querySelector(".form__title-text").textContent = titulo;
+//   inputFirst.placeholder = placeholder1;
+//   inputSecond.placeholder = placeholder2;
+//   errorMesageFirst.textContent = "";
+//   errorMesageSecond.textContent = "";
+//   inputFirst.addEventListener("input", () => {
+//     if (isEditMode) {
+//       inputFirst.setAttribute("minlength", "2");
+//       inputFirst.setAttribute("maxlength", "40");
+//       errorMesageFirst.textContent = inputFirst.validationMessage;
+//     } else {
+//       inputFirst.setAttribute("minlength", "2");
+//       inputFirst.setAttribute("maxlength", "30");
+//       errorMesageFirst.textContent = inputFirst.validationMessage;
+//     }
+//   });
+//   inputSecond.addEventListener("input", () => {
+//     if (isEditMode) {
+//       inputSecond.setAttribute("minlength", "2");
+//       inputSecond.setAttribute("maxlength", "200");
+//       inputSecond.type = "text";
+//       errorMesageSecond.textContent = inputSecond.validationMessage;
+//     } else {
+//       inputSecond.type = "url";
+//       errorMesageSecond.textContent = inputSecond.validationMessage;
+//     }
+//   });
+// }
+
+// // Eventos para abrir el formulario
+// editButton.addEventListener("click", () =>
+//   abrirFormulario("Editar perfil", "Nombre", "Acerca de mí", true)
+// );
+
+// botonAdd.addEventListener("click", () =>
+//   abrirFormulario("Nuevo lugar", "Título", "Enlace a la imagen")
+// );
+
+// abrir formulario para editar perfil
+editButton.addEventListener("click", () => {
   formPopUp.classList.add("form__show");
   overlay.classList.add("overlay--active");
-  document.querySelector(".form__title-text").textContent = titulo;
-  inputFirst.placeholder = placeholder1;
-  inputSecond.placeholder = placeholder2;
-  errorMesageFirst.textContent = "";
-  errorMesageSecond.textContent = "";
-  inputFirst.addEventListener("input", () => {
-    if (isEditMode) {
-      inputFirst.setAttribute("minlength", "2");
-      inputFirst.setAttribute("maxlength", "40");
-      errorMesageFirst.textContent = inputFirst.validationMessage;
-    } else {
-      inputFirst.setAttribute("minlength", "2");
-      inputFirst.setAttribute("maxlength", "30");
-      errorMesageFirst.textContent = inputFirst.validationMessage;
-    }
-  });
-  inputSecond.addEventListener("input", () => {
-    if (isEditMode) {
-      inputSecond.setAttribute("minlength", "2");
-      inputSecond.setAttribute("maxlength", "200");
-      inputSecond.type = "text";
-      errorMesageSecond.textContent = inputSecond.validationMessage;
-    } else {
-      inputSecond.type = "url";
-      errorMesageSecond.textContent = inputSecond.validationMessage;
-    }
-  });
+});
+
+// abrir formulario para agregar tarjeta
+botonAdd.addEventListener("click", () => {
+  formAdd.classList.add("form__show");
+  overlay.classList.add("overlay--active");
+});
+
+//escuchar el primer imput del formulario edit para validarlo
+inputFirst.addEventListener("input", () => {
+  inputFirst.setAttribute("minlength", "2");
+  inputFirst.setAttribute("maxlength", "40");
+  errorMesageFirst.textContent = inputFirst.validationMessage;
+});
+
+// escuchar el primer input del formulario add para validarlo
+inputFirstAdd.addEventListener("input", () => {
+  inputFirstAdd.setAttribute("minlength", "2");
+  inputFirstAdd.setAttribute("maxlength", "30");
+  errorMesageFirstAdd.textContent = inputFirstAdd.validationMessage;
+});
+
+// escuchar el segundo input del formulario edit para validarlo
+inputSecond.addEventListener("input", () => {
+  inputSecond.setAttribute("minlength", "2");
+  inputSecond.setAttribute("maxlength", "200");
+  errorMesageSecond.textContent = inputSecond.validationMessage;
+});
+
+// escuchar el segundo input del formulario add para validarlo
+inputSecondAdd.addEventListener("input", () => {
+  errorMesageSecondAdd.textContent = inputSecondAdd.validationMessage;
+});
+
+// Función para cerrar el formulario
+function cerrarFormulario() {
+  formPopUp.classList.remove("form__show");
+  formAdd.classList.remove("form__show");
+  overlay.classList.remove("overlay--active");
+  inputFirst.value = "";
+  inputSecond.value = "";
+  inputFirstAdd.value = "";
+  inputSecondAdd.value = "";
 }
-
-// Eventos para abrir el formulario
-editButton.addEventListener("click", () =>
-  abrirFormulario("Editar perfil", "Nombre", "Acerca de mí", true)
-);
-
-botonAdd.addEventListener("click", () =>
-  abrirFormulario("Nuevo lugar", "Título", "Enlace a la imagen")
-);
 
 // Evento para cerrar el formulario
 closeButton.addEventListener("click", () => {
-  formPopUp.classList.toggle("form__show");
-  overlay.classList.remove("overlay--active");
+  cerrarFormulario();
+});
+
+// Evento para cerrar el segundo formulario
+closeButtonAdd.addEventListener("click", () => {
+  cerrarFormulario();
 });
 
 // Evento para cerrar el formulario con tecla "Escape"
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
-    formPopUp.classList.remove("form__show");
-    overlay.classList.remove("overlay--active");
+    cerrarFormulario();
   }
 });
 
 // Evento para cerrar el formulario al hacer clic fuera de él
 document.addEventListener("click", (e) => {
   if (e.target === overlay) {
-    formPopUp.classList.remove("form__show");
-    overlay.classList.remove("overlay--active");
+    cerrarFormulario();
   }
 });
 
-// Función para validar el formulario y activar el botón solo si ambos inputs son válidos
+// Escuchar cambios en los inputs para validar el formulario dinámicamente
+inputFirst.addEventListener("input", validarFormulario);
+inputSecond.addEventListener("input", validarFormulario);
+inputFirstAdd.addEventListener("input", validarFormulario);
+inputSecondAdd.addEventListener("input", validarFormulario);
+
+//funcion para activar el boton submir luego de validar los inputs
 function validarFormulario() {
   const isValidFirst = inputFirst.validity.valid;
   const isValidSecond = inputSecond.validity.valid;
+  const isValidFirstAdd = inputFirstAdd.validity.valid;
+  const isValidSecondAdd = inputSecondAdd.validity.valid;
 
   if (isValidFirst && isValidSecond) {
     formButton.classList.add("form__edit-submit-button--active");
   } else {
     formButton.classList.remove("form__edit-submit-button--active");
   }
-}
 
-// Escuchar cambios en los inputs para validar el formulario dinámicamente
-inputFirst.addEventListener("input", validarFormulario);
-inputSecond.addEventListener("input", validarFormulario);
+  if (isValidFirstAdd && isValidSecondAdd) {
+    formButtonAdd.classList.add("form__edit-submit-button-b--active");
+  } else {
+    formButtonAdd.classList.remove(".form__edit-submit-button-b--active");
+  }
+}
 
 // Datos iniciales de las tarjetas
 const initialCards = [
@@ -212,21 +280,19 @@ function addCard(name, link, isNewCard = false) {
   deleteButton.addEventListener("click", () => cardElement.remove());
 }
 
-// Evento para manejar el envío del formulario
+// Evento para manejar el envío del formulario de editar perfil
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  nameProfile.textContent = inputFirst.value;
+  description.textContent = inputSecond.value;
+  cerrarFormulario();
+});
 
-  overlay.classList.remove("overlay--active");
-
-  if (isEditMode) {
-    nameProfile.textContent = inputFirst.value;
-    description.textContent = inputSecond.value;
-  } else {
-    // Aquí pasamos `true` para indicar que es una tarjeta nueva y debe agregarse al principio
-    addCard(inputFirst.value, inputSecond.value, true);
-  }
-
-  formPopUp.classList.remove("form__show");
+// Evento para manejar el envío del formulario de agregar tarjeta
+formAdd.addEventListener("submit", (e) => {
+  e.preventDefault();
+  addCard(inputFirstAdd.value, inputSecondAdd.value, true);
+  cerrarFormulario();
 });
 
 // Agregar tarjetas iniciales al cargar la página
