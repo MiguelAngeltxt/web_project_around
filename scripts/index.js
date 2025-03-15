@@ -22,6 +22,34 @@ const errorMesageFirstAdd = document.querySelector(".error__message-first-b");
 const errorMesageSecond = document.querySelector(".error__message-second");
 const errorMesageSecondAdd = document.querySelector(".error__message-second-b");
 
+// Datos iniciales de las tarjetas
+const initialCards = [
+  {
+    name: "Valle de Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
+  },
+  {
+    name: "Lago Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
+  },
+  {
+    name: "Montañas Calvas",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
+  },
+  {
+    name: "Parque Nacional de la Vanoise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
+  },
+];
+
 // abrir formulario para editar perfil
 editButton.addEventListener("click", () => {
   formPopUp.classList.add("form__show");
@@ -32,32 +60,6 @@ editButton.addEventListener("click", () => {
 botonAdd.addEventListener("click", () => {
   formAdd.classList.add("form__show");
   overlay.classList.add("overlay--active");
-});
-
-//escuchar el primer imput del formulario edit para validarlo
-inputFirst.addEventListener("input", () => {
-  inputFirst.setAttribute("minlength", "2");
-  inputFirst.setAttribute("maxlength", "40");
-  errorMesageFirst.textContent = inputFirst.validationMessage;
-});
-
-// escuchar el primer input del formulario add para validarlo
-inputFirstAdd.addEventListener("input", () => {
-  inputFirstAdd.setAttribute("minlength", "2");
-  inputFirstAdd.setAttribute("maxlength", "30");
-  errorMesageFirstAdd.textContent = inputFirstAdd.validationMessage;
-});
-
-// escuchar el segundo input del formulario edit para validarlo
-inputSecond.addEventListener("input", () => {
-  inputSecond.setAttribute("minlength", "2");
-  inputSecond.setAttribute("maxlength", "200");
-  errorMesageSecond.textContent = inputSecond.validationMessage;
-});
-
-// escuchar el segundo input del formulario add para validarlo
-inputSecondAdd.addEventListener("input", () => {
-  errorMesageSecondAdd.textContent = inputSecondAdd.validationMessage;
 });
 
 // Función para cerrar el formulario
@@ -94,60 +96,6 @@ document.addEventListener("click", (e) => {
     cerrarFormulario();
   }
 });
-
-// Escuchar cambios en los inputs para validar el formulario dinámicamente
-inputFirst.addEventListener("input", validarFormulario);
-inputSecond.addEventListener("input", validarFormulario);
-inputFirstAdd.addEventListener("input", validarFormulario);
-inputSecondAdd.addEventListener("input", validarFormulario);
-
-//funcion para activar el boton submir luego de validar los inputs
-function validarFormulario() {
-  const isValidFirst = inputFirst.validity.valid;
-  const isValidSecond = inputSecond.validity.valid;
-  const isValidFirstAdd = inputFirstAdd.validity.valid;
-  const isValidSecondAdd = inputSecondAdd.validity.valid;
-
-  if (isValidFirst && isValidSecond) {
-    formButton.classList.add("form__edit-submit-button--active");
-  } else {
-    formButton.classList.remove("form__edit-submit-button--active");
-  }
-
-  if (isValidFirstAdd && isValidSecondAdd) {
-    formButtonAdd.classList.add("form__edit-submit-button-b--active");
-  } else {
-    formButtonAdd.classList.remove(".form__edit-submit-button-b--active");
-  }
-}
-
-// Datos iniciales de las tarjetas
-const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
-  },
-];
 
 // Función para agregar una nueva tarjeta
 function addCard(name, link, isNewCard = false) {
@@ -241,3 +189,60 @@ formAdd.addEventListener("submit", (e) => {
 
 // Agregar tarjetas iniciales al cargar la página
 initialCards.forEach((card) => addCard(card.name, card.link));
+
+// VALIDACION DE FORMULARIO
+
+//escuchar el primer imput del formulario edit para validarlo
+inputFirst.addEventListener("input", () => {
+  errorMesageFirst.textContent = inputFirst.validationMessage;
+});
+
+// escuchar el primer input del formulario add para validarlo
+inputFirstAdd.addEventListener("input", () => {
+  errorMesageFirstAdd.textContent = inputFirstAdd.validationMessage;
+});
+
+// escuchar el segundo input del formulario edit para validarlo
+inputSecond.addEventListener("input", () => {
+  errorMesageSecond.textContent = inputSecond.validationMessage;
+});
+
+// escuchar el segundo input del formulario add para validarlo
+inputSecondAdd.addEventListener("input", () => {
+  errorMesageSecondAdd.textContent = inputSecondAdd.validationMessage;
+});
+
+document.querySelectorAll("input").forEach((input) => {
+  input.addEventListener("input", () => {
+    const errorMessage = document.querySelector(`#${input.id}-error`);
+    if (errorMessage) {
+      errorMessage.textContent = input.validationMessage;
+    }
+  });
+});
+
+// Escuchar cambios en los inputs para validar el formulario dinámicamente
+inputFirst.addEventListener("input", validarFormulario);
+inputSecond.addEventListener("input", validarFormulario);
+inputFirstAdd.addEventListener("input", validarFormulario);
+inputSecondAdd.addEventListener("input", validarFormulario);
+
+//funcion para activar el boton submit luego de validar los inputs
+function validarFormulario() {
+  const isValidFirst = inputFirst.validity.valid;
+  const isValidSecond = inputSecond.validity.valid;
+  const isValidFirstAdd = inputFirstAdd.validity.valid;
+  const isValidSecondAdd = inputSecondAdd.validity.valid;
+
+  if (isValidFirst && isValidSecond) {
+    formButton.classList.add("form__edit-submit-button--active");
+  } else {
+    formButton.classList.remove("form__edit-submit-button--active");
+  }
+
+  if (isValidFirstAdd && isValidSecondAdd) {
+    formButtonAdd.classList.add("form__edit-submit-button-b--active");
+  } else {
+    formButtonAdd.classList.remove(".form__edit-submit-button-b--active");
+  }
+}

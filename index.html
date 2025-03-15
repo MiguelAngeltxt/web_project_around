@@ -75,18 +75,28 @@
                   type="text"
                   class="form__edit-input-first"
                   id="first"
+                  minlength="2"
+                  maxlength="40"
                   placeholder="Nombre"
                   required
                 />
-                <span class="error__message error__message-first"></span>
+                <span
+                  id="first-span"
+                  class="error__message error__message-first"
+                ></span>
                 <input
                   type="text"
                   class="form__edit-input-second"
                   id="second"
+                  minlength="2"
+                  maxlength="200"
                   placeholder="Descripción"
                   required
                 />
-                <span class="error__message error__message-second"></span>
+                <span
+                  id="second-span"
+                  class="error__message error__message-second"
+                ></span>
                 <button
                   type="submit"
                   id="save-button"
@@ -109,15 +119,20 @@
             </div>
             <div class="form__title-b">
               <h3 class="form__title-text-b">Nuevo lugar</h3>
-              <form id="form-b" class="form__edit-b">
+              <form id="inputs-b" class="form__edit-b">
                 <input
                   type="text"
                   class="form__edit-input-first-b"
                   id="first-b"
+                  minlength="2"
+                  maxlength="30"
                   placeholder="Título"
                   required
                 />
-                <span class="error__message error__message-first-b"></span>
+                <span
+                  id="third-span"
+                  class="error__message error__message-first-b"
+                ></span>
                 <input
                   type="url"
                   class="form__edit-input-second-b"
@@ -125,7 +140,10 @@
                   placeholder="Enlace a la imagen"
                   required
                 />
-                <span class="error__message error__message-second-b"></span>
+                <span
+                  id="fourth-span"
+                  class="error__message error__message-second-b"
+                ></span>
                 <button
                   type="submit"
                   id="save-button-b"

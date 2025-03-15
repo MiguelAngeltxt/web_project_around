@@ -1,4 +1,5 @@
 import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 
 const cardContainer = document.querySelector(".elements");
 const initialCards = [
@@ -32,3 +33,15 @@ initialCards.forEach((card) => {
   const createdCard = new Card(card.name, card.link);
   cardContainer.append(createdCard.createCard());
 });
+
+const firstFormValidator = new FormValidator(
+  {
+    formSelector: "#inputs",
+    firstInputSelector: "#first",
+    secondInputSelector: "#second",
+    firstSpanSelector: "#first-span",
+    secondSpanSelector: "#second-span",
+    submitButtonSelector: "#save-button",
+  },
+  firstForm
+);
