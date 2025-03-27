@@ -36,10 +36,7 @@
               <h1 class="profile__info-header-title" id="name">
                 Jacques Cousteau
               </h1>
-              <button
-                class="profile__info-edit-button"
-                id="edit-profile-button"
-              >
+              <button class="profile__info-edit-button" id="profile-button">
                 <img
                   class="profile__info-edit-button-icon"
                   src="./images/edit.png"
@@ -60,47 +57,41 @@
           </div>
           <div class="overlay" id="overlay"></div>
           <div class="form" id="popup">
-            <div class="form__button">
+            <div class="popup__button">
               <img
-                id="close-button"
-                class="form__button-close"
+                id="close-button-profile"
+                class="popup__button-close"
                 src="./images/add2.png"
                 alt="cierre formulario"
               />
             </div>
-            <div class="form__title">
-              <h3 class="form__title-text">Editar Perfil</h3>
-              <form id="inputs" class="form__edit">
+            <div id="profile-form" class="popup">
+              <h3 class="popup__title">Editar Perfil</h3>
+              <form id="inputs" class="popup__form">
                 <input
                   type="text"
-                  class="form__edit-input-first"
-                  id="first"
+                  class="form__input form__input-name"
+                  id="input-name"
                   minlength="2"
                   maxlength="40"
                   placeholder="Nombre"
                   required
                 />
-                <span
-                  id="first-span"
-                  class="error__message error__message-first"
-                ></span>
+                <span class="input-name-error"></span>
                 <input
                   type="text"
-                  class="form__edit-input-second"
-                  id="second"
+                  class="form__input form__input-description"
+                  id="input-description"
                   minlength="2"
                   maxlength="200"
                   placeholder="Descripción"
                   required
                 />
-                <span
-                  id="second-span"
-                  class="error__message error__message-second"
-                ></span>
+                <span id="second-span" class="input-description-error"></span>
                 <button
                   type="submit"
                   id="save-button"
-                  class="form__edit-submit-button"
+                  class="form__button form__button-a"
                 >
                   Guardar
                 </button>
@@ -108,46 +99,40 @@
             </div>
           </div>
           <!-- <div class="overlay-b" id="overlay-b"></div> -->
-          <div class="form-b" id="popup-b">
-            <div class="form__button-b">
+          <div class="form-b form" id="popup-b">
+            <div class="popup__button">
               <img
-                id="close-button-b"
-                class="form__button-close-b"
+                id="close-button-card"
+                class="popup__button-close-b"
                 src="./images/add2.png"
                 alt="cierre formulario"
               />
             </div>
-            <div class="form__title-b">
-              <h3 class="form__title-text-b">Nuevo lugar</h3>
-              <form id="inputs-b" class="form__edit-b">
+            <div class="popup">
+              <h3 class="popup__title">Nuevo lugar</h3>
+              <form id="inputs-b" class="popup__form">
                 <input
                   type="text"
-                  class="form__edit-input-first-b"
-                  id="first-b"
+                  class="form__input form__input-text"
+                  id="input-text"
                   minlength="2"
                   maxlength="30"
                   placeholder="Título"
                   required
                 />
-                <span
-                  id="third-span"
-                  class="error__message error__message-first-b"
-                ></span>
+                <span id="third-span" class="input-text-error"></span>
                 <input
                   type="url"
-                  class="form__edit-input-second-b"
-                  id="second-b"
+                  class="form__input form__input-url"
+                  id="input-url"
                   placeholder="Enlace a la imagen"
                   required
                 />
-                <span
-                  id="fourth-span"
-                  class="error__message error__message-second-b"
-                ></span>
+                <span id="fourth-span" class="input-url-error"></span>
                 <button
                   type="submit"
-                  id="save-button-b"
-                  class="form__edit-submit-button-b"
+                  id="save-button-card"
+                  class="form__button form__button-b"
                 >
                   Guardar
                 </button>
@@ -178,24 +163,25 @@
         </template>
         <div class="overlay__image" id="overlay__image"></div>
         <div class="popup__image">
-          <div class="popup__button">
+          <div class="popup__button-image">
             <img
               id="close-button"
-              class="popup__button-close"
+              class="popup__button-image-close"
               src="./images/add2.png"
               alt="cierre formulario"
             />
           </div>
           <div class="popup__content">
             <img src="" alt="" class="popup__image-img" />
-            <p class="popup__image-text">zxczxczcx</p>
+            <p class="popup__image-text"></p>
           </div>
         </div>
       </main>
       <footer class="footer">
-        <p>© 2024 Around The U.S.</p>
+        <p>© 2025 Around The U.S.</p>
       </footer>
     </div>
+    <!-- <script type="module" src="./scripts/index.js"></script> -->
     <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>

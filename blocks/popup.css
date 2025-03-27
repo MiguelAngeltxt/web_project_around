@@ -20,16 +20,18 @@
 .popup__image-show {
   display: flex;
   position: fixed;
-  flex-direction: row-reverse;
+  flex-direction: column;
   justify-content: center;
   z-index: 1000;
   width: fit-content;
 }
 
-.popup__button-close {
+.popup__button-image {
   margin-left: auto;
+}
+
+.popup__button-image-close {
   transform: rotate(45deg);
-  width: 97%;
   cursor: pointer;
   transition: opacity 0.3s ease;
 }
