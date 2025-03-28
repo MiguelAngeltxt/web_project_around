@@ -1,16 +1,4 @@
-// Crea la clase Card, que produce una tarjeta con texto y un enlace a la imagen, siguiendo estos requisitos:
-
-// * Toma los datos de la tarjeta (tanto el texto como un enlace a la imagen) y un selector de elemento de plantilla como parámetros en el constructor. OOOO
-
-// * Dispone de métodos privados para trabajar con el marcado y añadir detectores de eventos.
-
-// * Tiene métodos privados para cada controlador de eventos.
-
-// * Tiene un método público que devuelve un elemento card completamente funcional y lleno de datos.
-
-// * Crea una instancia de la clase Card para cada tarjeta.
-
-export const cardTemplate = document.querySelector("#card-template").content;
+const cardTemplate = document.querySelector("#card-template").content;
 
 export class Card {
   constructor(name, link) {
