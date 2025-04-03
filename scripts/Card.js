@@ -1,9 +1,9 @@
 const cardTemplate = document.querySelector("#card-template").content;
 
 export class Card {
-  constructor(name, link) {
-    this.name = name;
-    this.link = link;
+  constructor(item) {
+    this.name = item.name;
+    this.link = item.link;
   }
 
   cloneTemplate() {
