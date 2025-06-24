@@ -1,9 +1,10 @@
-import { Card } from "./Card.js";
-// import { FormValidator } from "./FormValidator.js";
-// import { openPopup, closePopup } from "./utils.js";
- import { Section } from "./Section.js";
+import Card from "./Card.js";
+import { Section } from "./Section.js";
+import UserInfo from "./UserInfo.js";
+import PopupWithImage from "./PopupWithImage.js";
+import PopupWithForm from "./PopupWithForm.js";
+import FormValidator from "./FormValidator.js";
 
-const cardContainer = document.querySelector(".elements");
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -31,126 +32,89 @@ const initialCards = [
   },
 ];
 
- //initialCards.forEach((card) => {
-  // const createdCard = new Card(card.name, card.link);
-  // cardContainer.append(createdCard.createCard());
- //});
+const validationConfig = {
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__button",
+  inputErrorClass: "form__input_type_error",
+  errorClass: "form__input-error_active",
+  activeButtonClass: "form__button--active",
+};
 
-// class FormManager {
-//   constructor() {
-//     this.profilePopup = document.querySelector("#popup");
-//     this.profileButton = document.querySelector("#profile-button");
-//     this.form = document.querySelectorAll(".popup__form");
-//     this.overlay = document.querySelector("#overlay");
-//     this.cardPopup = document.querySelector("#popup-b");
-//     this.cardButton = document.querySelector("#add-button");
-//     this.closeProfileFormButton = document.querySelector(
-//       "#close-button-profile"
-//     );
-//     this.closeCardFormButton = document.querySelector("#close-button-card");
-//     this.nameInput = document.querySelector("#input-name");
-//     this.descriptionInput = document.querySelector("#input-description");
-//     this.profileSubmitButton = document.querySelector("#save-button");
-//     this.placeInput = document.querySelector("#input-text");
-//     this.linkInput = document.querySelector("#input-url");
-//     this.cardSubmitButton = document.querySelector("#save-button-card");
-
-//     this.init();
-//   }
-
-//   init() {
-//     this.openForm(this.profileButton, this.profilePopup);
-//     this.openForm(this.cardButton, this.cardPopup);
-//     this.setupEventListeners();
-//   }
-
-//   openForm(button, popup) {
-//     button.addEventListener("click", () => {
-//       openPopup(popup, this.overlay);
-//     });
-//   }
-
-//   closeForm() {
-//     closePopup(this.profilePopup, this.overlay);
-//     closePopup(this.cardPopup, this.overlay);
-//     this.form.forEach((form) => form.reset());
-//   }
-
-//   setupEventListeners() {
-//     document.addEventListener("keydown", (e) => {
-//       if (e.key === "Escape") {
-//         this.closeForm();
-//       }
-//     });
-
-//     document.addEventListener("click", (e) => {
-//       if (e.target === this.overlay) {
-//         this.closeForm();
-//       }
-//     });
-
-//     this.closeProfileFormButton.addEventListener("click", () =>
-//       this.closeForm()
-//     );
-//     this.closeCardFormButton.addEventListener("click", () => this.closeForm());
-
-//     this.profilePopup.addEventListener("submit", (e) =>
-//       this.submitProfileForm(e)
-//     );
-//     this.cardPopup.addEventListener("submit", (e) => this.submitCardForm(e));
-//   }
-
-//   submitProfileForm(e) {
-//     e.preventDefault();
-//     document.querySelector("#name").textContent = this.nameInput.value;
-//     document.querySelector("#description").textContent =
-//       this.descriptionInput.value;
-//     this.closeForm();
-//   }
-
-//   submitCardForm(e) {
-//     e.preventDefault();
-//     const newCard = new Card(this.placeInput.value, this.linkInput.value);
-//     cardContainer.prepend(newCard.createCard());
-//     this.closeForm();
-//   }
-// }
-
-// const formManager = new FormManager();
-
-// const validationConfig = {
-//   inputSelector: ".form__input",
-//   submitButtonSelector: ".form__button",
-//   inputErrorClass: "form__input_type_error",
-//   errorClass: "form__input-error_active",
-//   activeButtonClass: "form__button--active",
-// };
-
-// const profileForm = document.querySelector("#inputs");
-// const cardForm = document.querySelector("#inputs-b");
-
-// if (profileForm) {
-//   const profileValidator = new FormValidator(validationConfig, profileForm);
-//   profileValidator.enableValidation();
-// }
-
-// if (cardForm) {
-//   const cardValidator = new FormValidator(validationConfig, cardForm);
-//   cardValidator.enableValidation();
-// }
-
-////
-// renderer debe ser una función que crea una tarjeta y la agrega al contenedor
-const cardSection = new Section(
+const List = new Section(
   {
-    items: initialCards,
+    data: initialCards,
     renderer: (item) => {
-      const card = new Card(item);
-      const cardElement = card.createCard();
-      cardSection.addItem(cardElement);
+      const card = new Card(item, "#card-template", handleCardClick);
+      const cardElement = card.generateCard();
+      List.addItem(cardElement);
     },
   },
   ".elements"
 );
 
-cardSection.renderItems();
+const popupImage = new PopupWithImage(".popup__image");
+
+popupImage.setEventListeners();
+
+const handleCardClick = (name, link) => {
+  popupImage.open(name, link);
+};
+
+const profilePopup = new PopupWithForm(".form", (formData) => {
+  userInfo.setUserInfo({
+    name: formData.name,
+    description: formData.description,
+  });
+  profilePopup.close();
+});
+profilePopup.setEventListeners();
+
+document.querySelector("#profile-button").addEventListener("click", () => {
+  const currentUser = userInfo.getUserInfo();
+  document.querySelector("#input-name").value = currentUser.name;
+  document.querySelector("#input-description").value = currentUser.about;
+  profilePopup.open();
+});
+
+const addCardPopup = new PopupWithForm(".form-b", (formData) => {
+  const newCard = new Card(
+    { name: formData.title, link: formData.link },
+    "#card-template",
+    handleCardClick
+  );
+  const cardElement = newCard.generateCard();
+  List.addItem(cardElement);
+  addCardPopup.close();
+});
+addCardPopup.setEventListeners();
+
+document.querySelector("#add-button").addEventListener("click", () => {
+  addCardPopup.open();
+});
+
+const userInfo = new UserInfo({
+  nameSelector: "#name",
+  aboutSelector: "#description",
+});
+
+document.querySelector("#profile-button").addEventListener("click", () => {
+  const currentUser = userInfo.getUserInfo();
+  document.querySelector("#input-name").value = currentUser.name;
+  document.querySelector("#input-description").value = currentUser.description;
+  profilePopup.open();
+});
+
+const formEditProfile = document.querySelector("#inputs");
+const formAddCard = document.querySelector("#inputs-b");
+
+const profileFormValidator = new FormValidator(
+  validationConfig,
+  formEditProfile
+);
+
+const addCardFormValidator = new FormValidator(validationConfig, formAddCard);
+
+profileFormValidator.enableValidation();
+addCardFormValidator.enableValidation();
+
+List.renderItems();

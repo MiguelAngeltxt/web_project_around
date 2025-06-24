@@ -22,13 +22,12 @@
   z-index: 1000;
 }
 
-.form__show {
+/*.form__show {
   display: flex;
-}
+}*/
 
 .popup__button {
   margin-left: auto;
-  transform: rotate(45deg);
   cursor: pointer;
   transition: opacity 0.3s ease;
 }

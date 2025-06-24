@@ -1,79 +1,58 @@
-const cardTemplate = document.querySelector("#card-template").content;
-
-export class Card {
-  constructor(item) {
-    this.name = item.name;
-    this.link = item.link;
+export default class Card {
+  constructor(data, cardSelector, handleCardClick) {
+    this._name = data.name;
+    this._link = data.link;
+    this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
+    this._isLiked = false;
   }
 
-  cloneTemplate() {
-    return cardTemplate.querySelector(".elements__item").cloneNode(true);
+  _getTemplate() {
+    const cardElement = document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".elements__item")
+      .cloneNode(true);
+    return cardElement;
   }
 
-  createCard() {
-    this.card = this.cloneTemplate();
-    this.cardImage = this.card.querySelector(".elements__item-img");
-    this.cardTitle = this.card.querySelector(".elements__item-title");
-    this.cardLikeButton = this.card.querySelector(
+  _handleLikeClick() {
+    const likeButton = this._element.querySelector(
       ".elements__item-like-button"
     );
-    this.cardDeleteButton = this.card.querySelector(
-      ".elements__item-action-button"
-    );
-    this.cardImage.src = this.link;
-    this.cardTitle.textContent = this.name;
-    this._setEventsListeners();
-    return this.card;
-  }
-
-  _setEventsListeners() {
-    this.cardLikeButton.addEventListener("click", this._like);
-    this.cardDeleteButton.addEventListener("click", this._delete);
-    this.cardImage.addEventListener("click", (evt) => this._openImage(evt));
-    document
-      .querySelector(".popup__button-image-close")
-      .addEventListener("click", this._closeImage);
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        this._closeImage();
-      }
-    });
-    document.addEventListener("click", (e) => {
-      if (e.target === document.querySelector(".overlay__image")) {
-        this._closeImage();
-      }
-    });
-  }
-
-  _like(evt) {
-    const likeButton = evt.target;
-    const currentSrc = likeButton.src;
-    if (currentSrc.includes("./images/Union.png")) {
+    if (this._isLiked) {
       likeButton.src = "./images/Group.png";
     } else {
       likeButton.src = "./images/Union.png";
     }
+    this._isLiked = !this._isLiked;
   }
 
-  _delete(evt) {
-    evt.target.closest(".elements__item").remove();
-  }
+  generateCard() {
+    this._element = this._getTemplate();
+    const imageElement = this._element.querySelector(".elements__item-img");
+    imageElement.src = this._link;
+    imageElement.alt = this._name;
+    this._element.querySelector(".elements__item-title").textContent =
+      this._name;
 
-  _openImage() {
-    document.querySelector(".popup__image").classList.add("popup__image-show");
-    document.querySelector(".popup__image-img").src = this.link;
-    document.querySelector(".popup__image-text").textContent = this.name;
-    document
-      .querySelector(".overlay__image")
-      .classList.add("overlay__image--active");
-  }
+    imageElement.addEventListener("click", () => {
+      this._handleCardClick(this._name, this._link);
+    });
 
-  _closeImage() {
-    document
-      .querySelector(".popup__image")
-      .classList.remove("popup__image-show");
-    document
-      .querySelector(".overlay__image")
-      .classList.remove("overlay__image--active");
+    const deleteButton = this._element.querySelector(
+      ".elements__item-action-button"
+    );
+    deleteButton.addEventListener("click", () => {
+      this._element.remove();
+    });
+
+    const likeButton = this._element.querySelector(
+      ".elements__item-like-button"
+    );
+    likeButton.addEventListener("click", () => {
+      this._handleLikeClick();
+    });
+
+    return this._element;
   }
 }

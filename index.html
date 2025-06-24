@@ -56,7 +56,7 @@
             </button>
           </div>
           <div class="overlay" id="overlay"></div>
-          <div class="form" id="popup">
+          <div class="form" id="edit-popup">
             <div class="popup__button">
               <img
                 id="close-button-profile"
@@ -69,6 +69,7 @@
               <h3 class="popup__title">Editar Perfil</h3>
               <form id="inputs" class="popup__form">
                 <input
+                  name="name"
                   type="text"
                   class="form__input form__input-name"
                   id="input-name"
@@ -77,8 +78,9 @@
                   placeholder="Nombre"
                   required
                 />
-                <span class="input-name-error"></span>
+                <span class="input-name-error" id="input-name-error"></span>
                 <input
+                  name="description"
                   type="text"
                   class="form__input form__input-description"
                   id="input-description"
@@ -87,7 +89,10 @@
                   placeholder="Descripción"
                   required
                 />
-                <span id="second-span" class="input-description-error"></span>
+                <span
+                  id="input-description-error"
+                  class="input-description-error"
+                ></span>
                 <button
                   type="submit"
                   id="save-button"
@@ -98,12 +103,11 @@
               </form>
             </div>
           </div>
-          <!-- <div class="overlay-b" id="overlay-b"></div> -->
           <div class="form-b form" id="popup-b">
             <div class="popup__button">
               <img
                 id="close-button-card"
-                class="popup__button-close-b"
+                class="popup__button-close"
                 src="./images/add2.png"
                 alt="cierre formulario"
               />
@@ -112,6 +116,7 @@
               <h3 class="popup__title">Nuevo lugar</h3>
               <form id="inputs-b" class="popup__form">
                 <input
+                  name="title"
                   type="text"
                   class="form__input form__input-text"
                   id="input-text"
@@ -120,15 +125,16 @@
                   placeholder="Título"
                   required
                 />
-                <span id="third-span" class="input-text-error"></span>
+                <span id="input-text-error" class="input-text-error"></span>
                 <input
+                  name="link"
                   type="url"
                   class="form__input form__input-url"
                   id="input-url"
                   placeholder="Enlace a la imagen"
                   required
                 />
-                <span id="fourth-span" class="input-url-error"></span>
+                <span id="input-url-error" class="input-url-error"></span>
                 <button
                   type="submit"
                   id="save-button-card"
@@ -166,7 +172,7 @@
           <div class="popup__button-image">
             <img
               id="close-button"
-              class="popup__button-image-close"
+              class="popup__button-close"
               src="./images/add2.png"
               alt="cierre formulario"
             />
@@ -181,8 +187,6 @@
         <p>© 2025 Around The U.S.</p>
       </footer>
     </div>
-    <!-- <script type="module" src="./scripts/index.js"></script> -->
     <script type="module" src="./scripts/index.js"></script>
-    <script type="module" src="./scripts/Section.js"></script>
   </body>
 </html>

@@ -15,22 +15,21 @@
 
 .popup__image {
   display: none;
-  width: 100%;
-}
-.popup__image-show {
-  display: flex;
   position: fixed;
   flex-direction: column;
   justify-content: center;
   z-index: 1000;
   width: fit-content;
 }
+.popup_is-opened {
+  display: flex;
+}
 
 .popup__button-image {
   margin-left: auto;
 }
 
-.popup__button-image-close {
+.popup__button-close {
   transform: rotate(45deg);
   cursor: pointer;
   transition: opacity 0.3s ease;
