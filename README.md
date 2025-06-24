@@ -1,128 +1,48 @@
-Alrededor de los EE.UU.
+# Alrededor de los EE.UU.
 
-Este proyecto es una representación de una galería interactiva, creada como parte del sprint 7. En esta galería, los usuarios pueden explorar imágenes de diversos paisajes y editar su perfil. A continuación, se detalla la estructura, funcionalidad y configuración del proyecto.
+## Descripción del Proyecto y su Funcionalidad
 
-Estructura del Proyecto
+"Alrededor de los EE.UU." es una aplicación web interactiva que simula una red social de intercambio de imágenes. Permite a los usuarios visualizar una galería de imágenes preexistente, así como añadir nuevas tarjetas con sus propias imágenes y descripciones. Además, los usuarios pueden interactuar con las imágenes existentes dándoles "me gusta" y eliminándolas. La aplicación también incluye la funcionalidad de edición de perfil, permitiendo a los usuarios actualizar su nombre y descripción.
 
-El proyecto está organizado en varios archivos y carpetas:
+Las características principales incluyen:
 
-Archivos principales:
+* **Visualización de Galería**: Muestra una colección inicial de tarjetas con imágenes y títulos.
+* **Añadir Nuevas Tarjetas**: Un formulario intuitivo permite a los usuarios subir nuevas imágenes a la galería, especificando un título y un enlace a la imagen.
+* **Funcionalidad "Me gusta"**: Cada tarjeta cuenta con un botón de "me gusta" que permite a los usuarios indicar su aprobación por una imagen. Al hacer clic, el ícono del corazón cambia para reflejar el estado de "me gusta" (o "no me gusta").
+* **Eliminar Tarjetas**: Los usuarios pueden eliminar tarjetas de la galería si así lo desean.
+* **Edición de Perfil**: Un formulario de edición de perfil permite a los usuarios actualizar su nombre y su descripción en la página.
+* **Validación de Formularios**: Todos los formularios de la aplicación (añadir tarjeta, editar perfil) cuentan con validación en tiempo real para asegurar que los datos ingresados sean correctos antes de ser enviados.
+* **Popups Modales**: La interacción con la aplicación se realiza a través de ventanas emergentes modales para la edición de perfil, la adición de nuevas tarjetas y la visualización ampliada de imágenes.
+* **Navegación Intuitiva**: Cerrar los popups es posible haciendo clic en el botón de cerrar, presionando la tecla `Escape` o haciendo clic en el overlay.
 
-index.html: Estructura principal del proyecto.
+## Tecnologías y Técnicas Utilizadas
 
-index.css: Estilo de la página, ubicado en la carpeta pages.
+Este proyecto está construido principalmente con las siguientes tecnologías y técnicas:
 
-index.js: Lógica y funcionalidades interactivas, ubicado en la carpeta scripts.
+* **HTML5**: Para la estructura semántica y el contenido de la página web.
+* **CSS3**: Para el diseño, estilo y responsividad de la interfaz de usuario, incluyendo el uso de Flexbox y Grid para un diseño adaptable a diferentes tamaños de pantalla.
+* **JavaScript ES6+**: Para toda la lógica interactiva del lado del cliente. Se ha hecho un fuerte énfasis en la **Programación Orientada a Objetos (POO)** y en el uso de **Clases** para estructurar el código de manera modular y reutilizable.
 
-favicon.ico: Icono del sitio.
+### Principios de Diseño de Software
 
-Imágenes:
+Se ha implementado un enfoque de **Acoplamiento Débil** en el diseño del código JavaScript. Esto se logra mediante:
 
-Ubicadas en la carpeta images, incluyen:
+* **Separación de Responsabilidades**: Cada clase (ej. `Card`, `Popup`, `FormValidator`, `UserInfo`, `Section`) tiene una única responsabilidad bien definida, lo que facilita su mantenimiento y comprensión.
+* **Inyección de Dependencias**: Las clases reciben las dependencias que necesitan (por ejemplo, funciones de callback o selectores de CSS) a través de sus constructores, en lugar de crearlas internamente o depender de variables globales. Esto permite que las clases sean más independientes y reutilizables.
+* **Manejo de Eventos Delegado**: En lugar de que una clase conozca los detalles internos de otra, se utilizan funciones de devolución de llamada (`callbacks`) para comunicar eventos entre ellas. Por ejemplo, la clase `Card` notifica a un manejador externo (definido en `index.js`) cuando se hace clic en una imagen o en el botón de "Me gusta", en lugar de abrir directamente un popup o modificar elementos de otras partes de la interfaz.
 
-Vector.png: Logo del sitio.
+### Estructura del Proyecto
 
-image.jpg: Imagen de perfil.
+El código JavaScript está organizado en módulos para una mejor gestión y escalabilidad:
 
-edit.png: Icono para editar.
+* `index.js`: El archivo principal que inicializa la aplicación, coordina las instancias de las diferentes clases y maneja los event listeners globales.
+* `Card.js`: Clase encargada de crear y gestionar la lógica de cada tarjeta individual de la galería, incluyendo la funcionalidad de "Me gusta" y eliminar.
+* `FormValidator.js`: Clase responsable de la lógica de validación de los formularios.
+* `Popup.js`: Clase base para todos los popups modales, manejando la apertura, cierre y los event listeners comunes (escape, clic en cerrar).
+* `PopupWithForm.js`: Extiende `Popup` para manejar popups que contienen formularios, incluyendo la recolección de datos de entrada y el envío del formulario.
+* `PopupWithImage.js`: Extiende `Popup` para mostrar imágenes ampliadas en un popup.
+* `Section.js`: Clase para renderizar y gestionar secciones de elementos dinámicos (como las tarjetas de la galería).
+* `UserInfo.js`: Clase que gestiona la información del usuario mostrada en el perfil.
+* `utils.js`: Contiene variables y funciones de utilidad globales, como la configuración de validación.
 
-add2.png: Icono para añadir o cerrar formularios.
-
-Group.png: Icono de corazones para "me gusta".
-
-Varias imágenes de paisajes representadas en la sección de elementos.
-
-Funcionalidad
-
-Perfil:
-
-Edición de Perfil: Los usuarios pueden hacer clic en el botón de edición para abrir un formulario modal donde pueden actualizar su nombre y descripción.
-
-Avatar de Usuario: Se muestra una imagen del usuario como avatar.
-
-Galería:
-
-Visualización de Imágenes: Se presenta una galería de paisajes, cada uno con su descripción.
-
-Interacciones: Los usuarios pueden interactuar con las imágenes usando el botón de "me gusta".
-
-Diseño Responsive:
-
-El proyecto utiliza media queries para adaptarse a diferentes tamaños de pantalla.
-
-Estructura del HTML
-
-Encabezado (<header>):
-
-Contiene el logo del proyecto.
-
-Sección de Perfil (<section class="profile">):
-
-Muestra el avatar, nombre, descripción y botones para editar el perfil o añadir nuevos elementos.
-
-Galería (<section class="elements">):
-
-Contiene una lista de paisajes con imágenes, nombres y botones interactivos.
-
-Pie de Página (<footer>):
-
-Incluye un mensaje de copyright.
-
-Configuración del Proyecto
-
-Instalación:
-
-Clona el repositorio en tu máquina local.
-
-git clone https://github.com/MiguelAngeltxt/web_project_around
-
-Asegúrate de tener una estructura de carpetas como sigue:
-
-/
-|-- /images
-|-- /pages
-| |-- index.css
-|-- /scripts
-| |-- index.js
-|-- index.html
-|-- favicon.ico
-
-Abrir el Proyecto:
-
-Abre el archivo index.html en tu navegador.
-
-Ediciones y Personalización:
-
-Puedes modificar el archivo CSS para personalizar el diseño.
-
-Para cambiar el contenido dinámico, edita index.js.
-
-Publicación en GitHub Pages
-
-Puedes acceder al proyecto publicado en GitHub Pages en el siguiente enlace:
-
-https://miguelangeltxt.github.io/web_project_around
-
-Características Técnicas
-
-HTML5:
-
-Uso de semántica moderna.
-
-Metadatos bien definidos.
-
-CSS3:
-
-Diseño flexible y responsive.
-
-Clases organizadas en BEM (Bloque-Elemento-Modificador).
-
-JavaScript:
-
-Funcionalidad dinámica para formularios y botones (implementada en index.js).
-
-Créditos
-
-Autor: Miguel Angel
-
-Descripción del Proyecto: Proyecto de finalización del sprint 7 en TripleTen.
+Este enfoque modular y el uso de principios de acoplamiento débil aseguran que el código sea robusto, fácil de depurar y escalable para futuras mejoras.
